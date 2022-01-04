@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+
+  <title>docs - darkwave 0.4.0</title>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="./css/lib/tachyons.min.css" />
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"> -->
+
+  <!-- <script src="./js/lib/jquery.min.js"></script> -->
+  <!-- <script src="//unpkg.com/alpinejs" defer></script> -->
+
+  <!-- <script src="./js/lib/instant.page.min.js"></script> -->
+  <!-- <script src="https://cdn.skypack.dev/@hotwired/turbo"></script> -->
+
+</head>
+<body class="h-100">
+
+
+
+
+<style>
+  /* 	make it mono!! */
+  @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap');
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  .sys-blue {
+    color: blue;
+  }
+
+  body {
+    /* 	background-color: black; */
+    /* 	color: white; */
+  }
+
+  body {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+</style>
+
+
+
+
+
+
+
+
+<!-- custom version of prism: https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+apacheconf+handlebars+markup-templating+nginx+php+sql&plugins=normalize-whitespace+toolbar+copy-to-clipboard -->
+
+<link rel="stylesheet" href="./css/prism.dw.css" />
+<script src="./js/prism.dw.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+
+<!-- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet"> -->
+
+<style>
+
+	pre[class*="language-"] {
+		border-radius: 0;
+	}
+
+	code[class*="language-"],
+	pre[class*="language-"] {
+	/* 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; */
+		font-family: 'Fira Code', monospace;
+/* 		font-family: 'IBM Plex Mono', monospace; */
+		font-size: 0.9rem;
+		line-height: 1.55;
+		margin-bottom: 1.5rem;
+		background: #1d1d1d;
+	}
+	
+	.f7{
+	  font-size: .675rem;
+	}
+	
+	.sidebar-nav a:hover{
+		text-decoration: underline;
+	}
+	
+	@media screen and (min-width: 48em){
+		.content-frame{
+			margin-left: 20%;
+		}	
+	}
+</style>
+
+
+
+
+
+	<div class="w-20-ns w-100 pa3 h-100-ns overflow-auto-ns fixed-ns top-0 left-0">
+
+		<a href="/" class="f2 tracked-tight near-black no-underline">▲▼</a>
+		
+		<div class="f5 mb2 fw7 lh-title"><a class="near-black no-underline" href="/">darkwave &mdash; 0.4.0</a></div>
+
+		<div class="bw2 bt b--near-black mb3"></div>
+
+<!-- 		sidebar menu -->
+		<div class="sidebar-nav">
+
+			<div class="mb2">
+	      <a href="/docs#routing" class="near-black no-underline fw7 f6">URL Routing</a>
+			</div>
+	      <div class="pl1 f7">
+		      <a href="/docs#routing-http-verbs" class="near-black no-underline dib mb2 lh-title">Routing with HTTP verbs</a><br />
+		      <a href="/docs#routing-any-all" class="near-black no-underline dib mb2 lh-title">Accepting any/all matching HTTP requests</a>
+	      </div>
+
+		</div>
+
+	</div>
+	
+	<div class="content-frame w-80-ns w-100 h-100">
+	<div class="h-100 pa3 pl0-ns">
+
+
+
+
+
+
+
+
+
+
+
+
+  <section id="home" class="h-100 bg-near-black">
+
+		<div class="dt h-100 center">
+		  <div class="dtc h-100 v-mid tc">
+			  <div class="f-headline mb3 moon-gray">⊹</div>
+		  </div>
+		</div>
+
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+
+
+
+<br /><br /><br /><br />
+
+<h2>[DOCS ARE COMING SOON]</h2>
+<h3>not a lot of free time these days...</h3>
+<br /><br /><br /><br />
+
+
+dw - specialized functionality/components/patterns for building complex web applications quickly -- toolkit for building custom admins and the sites they power
+
+
+DW internet application development system - a software development kit for building complex applications quickly, with the littlest amount of technical overhead (building things in a responsible way, easy-to-maintain complex functionality)
+
+  LAMP-based ADK (application development kit)
+
+
+
+
+<br /><br />
+
+
+<h2>INSTALLATION</h2>
+
+
+
+# installation updates
+
+-- dw init checklist --
+- [x] create subdomain/domain
+  - [x] & ftp (if necessary)
+  - [x] add profile (ftp creds) to coda
+- [x] create database
+  - [x] & user
+  - [x] add db creds to coda (if necessary, not needed for eqkh/purhost sites)
+  - [ ] ** always use innodb/utf8 ** (myisam is default on most systems, but innodb is what you want)
+- [x] download dw from darkwave.ltd & upload files to ftp & visit site to install
+
+- [ ] 'install' modules -- currently everything is based on blog
+  -- https://github.com/hxgf/dw-blog-ui
+  -- https://github.com/hxgf/dw-blog-stereo
+
+
+sites setup checklist add (for me personally)
+- automated mysql backups
+- automated git backups
+
+
+
+
+dw install instructions / requirements
+- file/folder perms (writeable/editable files/dirs need to be 755)
+- galleries
+  - php upload max size / max post size (set w/ host or htaccess)
+  - imagemagick
+- possibly allow_url_fopen?
+
+
+dw checklist reminder to update max filesize (outside scope of fw, but something you still need to do in some cases)
+
+
+
+
+
+dw install
+- create the db & user on your own (reqs for user perms, db creation)
+- put the files on your server (w/ ftp)
+  - requirements - lamp stack (apache w/ htaccess & speficif modules enabled)(instructions for doing it w/ nginx)
+- chmod some files?
+- go to the site & run the install
+
+
+
+
+
+prerequisites
+- php (version?)
+- mysql (version?)
+  - db already set up w/ username & pw
+
+
+1. download zip & put it on your server (go to the site, do the install thing)
+2. delete the install file (controllers/install.php) (the installer should delete itself when it's done, but just in case, you should do it)
+3. have a good time! [it's pretty much stereo & tachyons from this point, so look at the docs for that]
+
+
+- upload folder needs to be set to 755 (correct?)
+
+
+
+
+creating a new user:
+
+  $email = "nacho.pizza@gmail.com";
+  $password = "pencil69";
+  $screenname = "admin69";
+
+  $new_id = db_insert("users", array(
+    'email' => strtolower($email),
+    'password' => password_hash($password, PASSWORD_BCRYPT),
+    'group_id' => '1',
+    'date_created' => time(),
+
+    'url_title' => url_title($screenname),
+    'screenname' => $screenname,
+  ));
+
+  echo $new_id;
+
+
+
+
+
+      - ideal setup
+        - php7
+        - ssd host/vps
+
+
+      - requirements
+        - upload (max filesize, post filesize, etc)
+          - note upload perms (www-data, 0755)
+        - imagemagick
+        - mysql (version?)
+        - php (version?)
+        - apc (recommended)
+        - curl
+
+        - prefs
+          - image upload path
+          - markdown
+          - timezone
+
+
+
+      dw php.ini
+            - post_max_size = 20M
+            - upload_max_filesize = 20M
+      - curl needs to be enabled
+      - mail (postfix might be needed on some hosts)
+
+
+
+
+
+
+
+??
+
+dw install - put labels or "info" mouseovers
+    automatically add/remove "http(s)" where needed
+        remove trailing slashes where needed
+    on success show success message
+        don't link to admin unless there's been an admin created
+    is there a way to re-initialize the install process (in case you decide later that you want to install an admin? just want to get started with the site architecture first?)
+
+
+
+- install process error reporting (files need to be writeable? db errors? missing fields? etc?)
+
+install reqs
+    mysql user that can create/alter tables
+    ability to write to filesystem
+
+darkwave reqs
+    imagemagick (version?)
+    
+install
+    better logic? idk...just make damn sure there are no errors before it deletes itself
+    catch errors better & show them & have a friendly "go back and fix" message
+
+
+
+
+- install script
+    - pre-check (so you can see which features are available...tell people what they need to change in order to make it compatible...maybe offer a script?)
+
+
+
+
+
+
+
+
+
+
+------
+------
+------
+
+<br /><br />
+
+
+
+
+
+dw is:
+- stereo
+- extensible admin app
+- content mgmt
+- simple auth system
+- web-app primitives (image management, file uploads, etc)
+- future: data manager
+- future: code/file manager -- can edit/manage the entire app from here
+- helpful error messages for things like uploads, logins, etc
+- form handling and validation (primitives, checking required/type, etc)
+- a consistent and reliable (unchanging) architecture to build against
+pragmatic, ehthos, brutalist, simple, boring, fast, fun
+- helper js libraries (dropzone, smoke, etc)
+- copy/paste components/patterns / building blocks for building specific types of functionality
+- pre-packaged 'manual plug-in' functionality
+- recommendations for tools to use for solving problems that aren't solved w/ the system
+- tutorials /checklists for how to build certain kinds of things w/ this
+(every time you want to do this, here's what you need to do/consider)
+talking 'newbs' through more complex operations (kinda like coaching someone through disarming a bomb or hooking up a sound system) (and helpful notes for debugging - [ie "photo uploads not working? check to make sure you created the upload folder and that it has the right permissions])
+recipe / cookbook
+how to build a
+directory of profiles for your organization
+generic blog site
+todo list app haha
+podcast cms?
+
+need MORE POWER? build an obelisk! here's how!
+
+
+
+------
+------
+------
+
+<br /><br />
+
+
+KITCHEN SINK
+- db collection init scripts
+- copy/paste admin screens (blog?)
+- generic form/photo updating from DAA user/trade/project
+	- kitchen sink form w/ every type of input / data structure
+- corollary copy/paste "front end" components
+	(?? OIP blog, files)
+
+
+<br /><br />
+
+# DOCS / EDUCATION / TUTORIALS
+
+[ ] better docs (describe what the system actually does, how to work with it, how to extend it)
+
+  // foundational info
+    // what it does
+      // what it includes
+    // why would you use it 
+
+
+wow this readme has drop-downs, cool to do that for dw readme? https://github.com/lydiahallie/javascript-questions#readme
+
+
+meta - need to suppress php warnings? (filling up the log file?)
+  try this: error_reporting(E_ERROR | E_PARSE);
+
+
+a manual (/field guide) for building (effective/attractive/solid/usable) web sites/applications with as little (fanfare/suffering/pretense/) as possible
+  key concept: build your thing, call it done, go hang out with your friends
+    development is central to some people's lives, but you're a real person with a real life. 
+    you can over-engineer anything to death, if you're a perfectionist, you'll never be happy with it, there's always something that could be better
+    make it good enough (and do a really good job), but know when to stop and call it done
+  instructional guides and resources (links to valuable online tools/libraries that can help you solve problems quickly)
+
+
+
+
+- what's included for the admin (and can be included in your public site) - font awesome, tachyons, alpine, quill, dropzone, etc
+    -- links to all the docs for all the libs
+
+  dw docs want to have a reference of all commonly used docs for all the libs included (font awesome icon search, tachyons components, etc)
+
+
+
+
+- copy/paste for FE components/patterns (& link to whatever repos for back end code? copy/pasta?)
+
+
+
+- front end / dev resources 
+  --- want to have a collection of cool "approved" libraries (ones that we like working with and yield badass results, ideally fitting the same license and ethos of the projects)
+
+  dw docs? separate site/resource? - front end best practices
+  - want to have a site (that i can refer to) that documents the workflows, resources and best practices i use/need to be a productive and efficient FE dev
+  - notes of all the tools i use for various things (unix time format, generating favicons, etc)
+
+
+
+
+
+stereo/dw front end -- if you want equal height floated divs, use flex + flex-wrap -- http://tachyons.io/docs/layout/flexbox/
+    also if you do a flexbox sticky footer, the flex element needs to be ie11 compliant w/ min height
+        the flex element needs to have     `flex: 1 0 auto;`
+
+
+
+
+
+
+- Is darkwave for me? -- guide/quiz/questionaire about the type of project you want to build, it tells you wether or not it's a good fit, offers alternatives if it's not (you need laravel, rails, wordpress, etc)
+
+
+Dark wave light house score?
+    - https://blog.logrocket.com/building-a-progressive-web-app-pwa-no-react-no-angular-no-vue-aefdded3b5e
+
+
+
+cookbooks for doing various types of projects (simple web site apps \-\-> mobile/pwa apps [tv os, "platform" type cloud services])
+
+  my "best-practices" guide for putting stuff together
+  "recipes"
+  "spells"
+  cool "how-to" instructions, step-by-step guides with colorful commentary
+
+  "building a forum / iphone app w/ darkwave, lexxi, vue, and phonegap" or whatever
+    recommendations for cool microservices to work with (braintree, mailgun, compose, etc)
+
+
+  tips on workflow, setting up your environment, etc
+
+    stereo/dw - this is cool for doing shit locally
+    https://github.com/typicode/hotel
+
+    idk mamp? open source alternative?
+
+    recommended editors (atom, coda, iterm, sequel pro, etc)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+here's what's included (libs)
+  flatpickr https://chmln.github.io/flatpickr/
+  dropzone
+  smoke
+  tachyons
+  font awesome
+  jquery
+
+  phmagick
+
+  [we're using them in the admin, it's up to you wether or not to use them in your actual projects. we made a note of patterns that utilize these dependencies for customer-facing code]
+
+  - make a note of all the 3rd-party libs & functionality the system comes with (stereo + phmagick + js libs + tachyons + darkwave functions [new_user (back end), post_json (front end) idk what else])
+  - tachyons components / resources [[tachyons patterns / meta]]
+  - datepicker, quill, dropzone, smoke, etc
+
+      comes bundled with
+      jquery [version?]
+      js cookie
+      jquery text editor
+      dropzone
+      smoke
+      flatpickr
+      phmagick
+      [darkwave helpers, loaders animations, etc, idk]
+
+      tachyons
+
+
+dw/stereo docs
+- all available global vars ($GLOBALS['user_id'], $GLOBALS['auth'], etc)
+
+
+global vars you have at your disposal
+  user_id // same as cookie
+  profile_url // same as cookie
+  auth // is user authenticated?
+  is_admin // is current user in admin group?
+  is_moderator // is current user in mod group?
+  locals // template locals
+  site_title
+  site_code
+  site_url
+  [and all the settings variables]
+  
+  
+front end tools
+
+  darkwave.api_request({
+    url: '/', // required
+    data: {},
+    callback: function(result){
+      alert(result);
+    },
+    debug: true // optional
+  });
+
+
+
+auth emails (welcome, pw reset) are sent with notifications@yourdomain.com. if you want to change this, do it yourself...you don't need to have a valid mailbox there, but set one up if you want to catch any replies from people.
+
+
+how to use/extend .validate (checking for uniqueness with email addresses or whatever else you want)
+
+how to check for required form fields
+
+here's what comes with auth:
+
+/login
+/register
+  & activation process
+/forgot
+  & pw reset process
+/account/settings
+
+
+here's the default behavior and here's how you can customize it
+
+
+
+
+
+
+
+
+
+
+
+
+
+------
+------
+------
+
+<br /><br />
+
+<h2>more power?</h2>
+
+need more power? maybe you should build an <a href="/obelisk">obelisk</a>
+- if you have more than one darkwave app running on a server and/or you want fast/concurrent processing w/ node.js (do the fast and heavy lifting that php isn't particularly well-suited for doing)
+- generic dw-compatible microservices that can be utilized by multiple apps
+- http interface (you call it from the dw controllers, send it data/instructions via http api)
+
+<br /><br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<Br /><br />
+
+
+
+- [ ]  ?? dw docs api_request
+if you give "url" param a full url, it will use that. otherwise it will treat your input as an api endpoint (if there's an api_root set, it will use that, otherwise it defaults to using the current server as a root (it's blank))
+ex: { url: '/login' } would load [http://publicworks.static.city/login](http://publicworks.static.city/login) if darkwave.api_root were set
+
+
+<br /><br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- [ ]  dw - what version of dropzone are we using??? - want to document the 'current' versions of each supporting lib in each release
+
+
+<br /><br />
+
+- [ ]  dw docs - components get their own section? (like obelisk)
+    - components/patterns intro
+
+        less of a feature and more of an ethos -- would love to have default profiles/configs for a11y & i18n
+        but not have to think about it on every project
+
+        - pick a pattern (messaging, forums, etc) and implement it, knowing that everything's generally covered (and note/warnings about what isn't)
+
+        pre-built accessible web components
+        taking the guess work out of best practices
+        basic blocks, nothing too technical or over-engineered
+        make it easy to do the right thing (without having to do a lot of work every time and worry that you're getting it wrong)
+
+    darkwave patterns - like slices, a little bit of everything you need at each layer to accomplish a certain piece of functionality (front end, back end, database, url routing, etc)
+    - building w/ pods (like ember) - your app is split into slices
+
+- [ ]  docs components/patterns org (kitchen sink)
+update new modules - blog from oip
+starter kit w/ everything (text entry, textarea, quill, checkboxes, photo gallery, single photo upload, file uplad, etc) -- take away everything you don't need 
+— from oip - blog/editor changes (admin.js [photo upload, save], quill dw css, admin css)
+list headers colors
+    - components for generic 'kitchen sink' form, you can find everything in one place and copy what you need ... currently 'blog/articles' module ... call it 'profiles' or something ... put it all in one repo
+    -- Dw kitchen sink - every type of ui element (form element) and how to store/retrieve it
+    Select, boolrnans, checkbox, photos, files, passwords, dates, required, tool tips, etc, etc
+    -- kinda like this but w/ active admin form elements (and their back-end counterparts [http://foundation.zurb.com/docs/components/kitchen_sink.html](http://foundation.zurb.com/docs/components/kitchen_sink.html)
+
+    -- -- dw kitchen sink - searchable page that has everything, implemented example & tabbed code samples for copy/paste
+
+    -- -- would also like to do it for each part of each component/module too (blog, profiles, etc)
+
+    dw modules - consistent nomenclature (galleries, blogs/articles, files, etc) - db collections are consistently plural tho
+
+    dw new components from ocean investor portal
+
+    - gallery
+    - ?? files?
+    - "custom" boilerplate (used for projects...based on "profile" component)
+
+    dw components - user profiles and directory
+    -nrha pros
+    -carlton landing builders guild
+    -ocean mgmt tenants
+
+<br /><br /><br /><br />
+
+- docs db setup (best practices) - default table type - innodb + utf8/utf8_general
+
+<br /><br /><br /><br />
+
+
+- [ ]  BLOG COMPONENT - admin fix - blog component - "all users" --> "all articles"
+- [ ]  blog component - sql query add ENGINE (innodb) from user creation query (on install)
+- [ ]  (from OIP) — blog component updates
+    - blog save large image
+        - new db column
+        - new controllers (save/delete blog admin)
+        - new templates (blog list/detail, responsive images)
+    - dw blog add subtitle
+    - and the text editor feels kinda janky!
+    - text input styles - pa2 f5 (and not b/fw7)
+
+
+<br /><br /><br /><br />
+
+- [ ]  docs credits - dw.serielaize)( lifted from// https://vanillajstoolkit.com/helpers/serialize/
+- [ ]  docs - "standards" dates stored as bigint, boolean is tinyint, all tables have a _id field and we write a special uniquid for each new record, dates stored as unix time, always use innodb/utf8
+- [ ]  docs note - the password/hashing (auth tokens, is_admin, etc) functions use the site code. if you change it, it will "break" the credentials (cookies) for users who are logged in and they'll have to log in again
+- dw features/docs - global loading state (& instructions on how to update (shout out to where we got it from, links to go make a new one))
+
+- dw docs - after(/before?) install: perms on uploads folder need to be 0755 (default on my server...idk about yours)
+
+- dw docs - on install check perms of upload folder - 0755
+
+
+<br /><br /><br /><br />
+
+it's not a framework, it's a lifestyle ... nothing really magic happening w/ the technology, just combining existing libs in a useful way. the important part is the workflow, organization, and coding conventions. ultimately we want to have a collection of copy paste code/components to make the process of building full-stack applications w/ these tools as fast and effortless as possible
+
+<br /><br />
+
+dw docs - reqs - some of the tools (alpine, i think?) only support evergreen browsers (ie, not ie11-) - maybe have some
+polyfills for supporting older browsers?
+
+
+
+<br /><br />
+
+??upload docs
+- sample code for working w/ uppy (like i'm doing for mgmt.ocean & jcdv)
+- https://uppy.io/examples/dashboard/
+- also sample code for processing uploads w/ obelisk (using both uppy and dropzone as a front end, single vs multiple
+- sample code for handling image galleries (copy/paste components w/ sort/edit functionality)
+- the stuff i've done for (cb, oip, jcdv, mgmt.ocean, tenants, etc)
+
+<br /><Br />
+
+
+
+
+
+
+
+
+- default user groups
+  - admin users (system managers, site admins...use all system/layout/dev/data tools in dw admin)
+  - mgmt/content users (use data in admin app, content publishing, user mgmt, manage settings for...whatever...etc)
+  - end-users - users of the site you build (people who use the "public" version, don't see or even know about the admin app) - web-site visitors, customers, etc
+    - separateable depending on use case (buyers vs sellers, community members w/ roles, etc)
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section class="mb5 pt4" id="templates" >
+
+		<div class="bt bw3 mb2 b--near-black"></div>
+
+    <div class="f2 fw7 mb3">TEMPLATES</div>
+
+
+
+
+
+
+
+<p class="lh-copy">
+
+---
+
+DW components gh (save components for docs & delete from gh)
+
+
+https://github.com/hxgf/dw-core-ui
+
+https://github.com/hxgf/dw-blog-ui
+https://github.com/hxgf/dw-blog-stereo
+
+
+https://github.com/hxgf/dw-shop-ui
+https://github.com/hxgf/dw-shop-stereo
+
+https://github.com/hxgf/dw-contact-ui
+https://github.com/hxgf/dw-contact-stereo
+
+https://github.com/hxgf/dw-sitemap-ui
+https://github.com/hxgf/dw-profile-ui
+https://github.com/hxgf/dw-newsfeed-ui
+https://github.com/hxgf/dw-message-ui
+https://github.com/hxgf/dw-map-ui
+https://github.com/hxgf/dw-forum-ui
+https://github.com/hxgf/dw-event-ui
+https://github.com/hxgf/dw-directory-ui
+https://github.com/hxgf/dw-classifieds-ui
+
+
+
+
+--- delet
+
+https://github.com/hxgf/dw-core-lexxi
+https://github.com/hxgf/dw-blog-lexxi
+
+
+---------------
+
+
+
+
+
+	dw docs
+
+		integration recipes for adding new functionality [i really want to automate the installation of this from either the web admin or the cli]
+			1. add the controllers
+			2. link to the new files
+			3. add the templates
+			4. add any js/css/images
+			5. add any db tables
+
+		how does form validation work?
+			which classes should you put where? and why? (validate, required, etc)
+
+		building admin screens
+			using the save/delete handlers (how they work, what they expect, etc)
+
+		document how the login works (note that we have a field called "website" to fool bots)
+		"zero to deployment" guide which talks about hosting, ideal enviornments, etc (for total noobs, not part of the fw, but good ideas to remember when setting up your site / solving this particular problem)
+
+		uploads
+			make sure your uploads folder is set to 755
+			if it's not working, turn on debugging and check this shit out: https://www.startutorial.com/articles/view/move_uploaded_file-faq
+
+
+</p>
+
+
+<hr /><hr /><hr />
+
+
+
+
+
+
+
+    <!-- 		fixit copy -->
+    <div class="mb3 black-50 lh-copy">something something templates go in ./pages and you can call them
+      whatever you want. you can organize this however you want, too! link to handlebars docs for more info.</div>
+
+
+    <div class="pt3 fw7 f3 mb2">Basic Variables</div>
+    <!-- 		fixit copy -->
+    <p class="lh-copy">the simplest thing to do. if you use render_template, stereo includes a few by default (year, etc) as well
+      as a few special things (is_admin, auth, user_id, etc) (title [uses the site title by default, so it's kinda
+      optional])</p>
+
+    <div class="cf">
+      <div class="fl w-50 pr3">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">php</p>
+
+        
+<pre><code class="language-php">
+	$app->get('/variable-example', function(){
+	  $GLOBALS['app']->render_template(array(
+	    'template' => 'demo',
+	    'data' => array(
+	      'fish' => 'salmon',
+	      'dish' => 'paella',
+	      'planet' => 'Nibiru'
+	    )
+	  ));
+	});
+</code></pre>
+
+      </div>
+
+
+      <div class="fl w-50">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">hbs (note about literals { { { } } } vs { { } } -- by default hbars doesn't parse html tags, so if you
+          want to have them rendered, do this)</p>
+
+<pre><code class="language-handlebars">
+	&lt;h2&gt;Simple Variables Example&lt;/h2&gt;
+	&lt;h3&gt;Cool Fish: &#123;&#123;fish&#125;&#125;&lt;/h3&gt;
+	&lt;h3&gt;Cool Dish: &#123;&#123;dish&#125;&#125;&lt;/h3&gt;
+	&lt;h3&gt;Cool Planet: &#123;&#123;planet&#125;&#125;&lt;/h3&gt;
+</code></pre>
+
+      </div>
+
+    </div>
+
+
+
+
+    <div class="pt3 fw7 f3 mb2">Iterating Arrays</div>
+    <!-- fixit copy -->
+    <p class="lh-copy">it's hella easy, just like a foreach loop. you can even nest the arrays to infinity (and beyond) (sorry) (it
+      can be as simple or complex as you want to make it) (see the demo controller/templates for an example of more
+      complex array iteration)</p>
+
+    <div class="cf">
+      <div class="fl w-50 pr3">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">php (simple & complex example from demo)</p>
+        
+<pre><code class="language-php">
+	$app->get('/array-example', function(){
+	  $GLOBALS['app']->render_template(array(
+	    'template' => 'demo',
+	    'data' => array(
+	      'snacks' => array(
+	        'Carrots',
+	        'Hay',
+	        'Sugar Cubes',
+	        'Oats',
+	        'Apples',
+	        'Weaker Horses'
+	      )
+	    )
+	  ));
+	});
+</code></pre>
+
+      </div>
+
+
+      <div class="fl w-50">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">hbs (simple & complex example from demo)</p>
+
+        
+<pre><code class="language-handlebars">
+	&lt;ul&gt;
+	  &#123;&#123;#each snacks&#125;&#125;
+	  &lt;li&gt;&#123;&#123;this&#125;&#125;&lt;/li&gt;
+	  &#123;&#123;/each&#125;&#125;
+	&lt;/ul&gt;
+</code></pre>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="pt3 fw7 f3 mb2">Simple Logic</div>
+    <!-- 		fixit copy -->
+    <p class="lh-copy">you can do some simple logic to check if a variable exists (or has value). if you would like to do more complex
+      logic, check out [if_either], [in_array], [is]</p>
+
+
+    <div class="cf">
+      <div class="fl w-50 pr3">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">php</p>
+        
+<pre><code class="language-php">
+	$app->get('/logic-example', function(){
+	  $GLOBALS['app']->render_template(array(
+	    'template' => 'demo',
+	    'data' => array(
+	      'fish' => 'salmon',
+	      'dish' => 'paella',
+	    )
+	  ));
+	});
+</code></pre>
+
+      </div>
+
+
+      <div class="fl w-50">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">hbs (if/else, unless, (normal hbars logic, link to hbars docs) maybe is & link to helpers)</p>
+
+        
+<pre><code class="language-handlebars">
+	&#123;&#123;#if fish&#125;&#125;
+	 Salmon is available
+	&#123;&#123;else&#125;&#125; // this won't show:
+	 No salmon for you.
+	&#123;&#123;/if&#125;&#125;
+	
+	&#123;&#123;#unless snacks&#125;&#125;
+	 No snacks available. We have &#123;&#123;dish&#125;&#125, though.
+	&#123;&#123;else&#125;&#125; // this won't show:
+	 Look at all the snack options:
+	 &#123;&#123;#each snacks&#125;&#125;
+	 - &#123;&#123;this&#125;&#125; &lt;br /&gt;
+	 &#123;&#123;/each&#125;&#125;
+	&#123;&#123;/unless&#125;&#125;
+</code></pre>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="pt3 fw7 f3 mb2">Partials</div>
+    <!-- fixit copy -->
+    <p class="lh-copy">You can include templates in other templates! That is neat! all your partials need to be in the _partials
+      directory, but you can organize that however you want!</p>
+
+    <div class="cf">
+      <div class="fl w-50 pr3">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">normal php whatever example</p>
+        
+<pre><code class="language-php">
+	$app->get('/partials-example', function(){
+	  $GLOBALS['app']->render_template(array(
+	    'template' => 'demo',
+	    'data' => array(
+	      'fish' => 'salmon',
+	      'dish' => 'paella',
+	      'planet' => 'Nibiru'
+	    )
+	  ));
+	});
+</code></pre>
+
+      </div>
+
+
+      <div class="fl w-50">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">hbs</p>
+
+        
+<pre><code class="language-handlebars">
+	&lt;h2&gt;Demo page (rendered with partial from separate template)&lt;/h2&gt;
+	
+	&lt;h3&gt;Fish: &#123;&#123;fish&#125;&#125;&lt;/h3&gt;
+	&lt;h3&gt;Dish: &#123;&#123;dish&#125;&#125;&lt;/h3&gt;
+	
+	&#123;&#123;&gt; planets-partial&#125;&#125;
+</code></pre>
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">hbs (partial code) (see how it has access to the same data?)</p>
+
+        
+<pre><code class="language-handlebars">
+	&lt;ul&gt;
+	  &#123;&#123;#each planets&#125;&#125;
+	  &lt;li&gt;&#123;&#123;this&#125;&#125;&lt;/li&gt;
+	  &#123;&#123;/each&#125;&#125;
+	&lt;/ul&gt;
+</code></pre>
+
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="pt3 fw7 f3 mb2">Global Layouts</div>
+    <!-- fixit copy -->
+    <p class="lh-copy">if you want to use a global header footer, you can! you can define as many global wrappers/layouts as you
+      want (like express, django, ember, whatever...wow!) if you leave the "layout" parameter blank, STEREO will use the
+      layout in ./pages/_layouts/base.hbs by default. your content will be rendered where the [[outlet]] part is</p>
+
+
+
+    <!-- 				fixit copy, code comments -->
+    <p class="lh-copy">php example</p>
+    
+<pre><code class="language-php">
+	$app->get('/layouts-example', function(){
+	  $GLOBALS['app']->render_template(array(
+	    'template' => 'demo',
+	    'title' => 'Site Title Whatever',
+	    'layout' => 'admin',  // false for nothing, base by default
+	    'data' => array(
+	      'fish' => 'salmon',
+	      'dish' => 'paella',
+	      'planets' => array(
+	        'Mercury', 'Venus', 'Earth', 'Nibiru'
+	      )
+	    )
+	  ));
+	});
+</code></pre>
+
+
+    <!-- 				fixit copy, code comments -->
+    <p class="lh-copy">hbs (wrapper)</p>
+
+    
+<pre><code class="language-handlebars">
+	&lt;!DOCTYPE html&gt;
+	&lt;html&gt;
+	&lt;head&gt;
+	  &lt;title&gt;&#123;&#123;title&#125;&#125;&lt;/title&gt;
+	  &lt;meta charset="utf-8" /&gt;
+	  &lt;meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" /&gt;
+	  &lt;link rel="stylesheet" href="/css/app.css" /&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	
+	  &lt;div class="header"&gt;&lt;h1&gt;Site Title Whatever&lt;/h1&gt;&lt;/div&gt;
+	
+	  &lt;div class="container"&gt;
+	    [[outlet]]  // this is where the content will be rendered
+	  &lt;/div&gt;
+	
+	  &lt;div class="footer"&gt;(c) &#123;&#123;year&#125;&#125; -- All rights reserved or whatever.&lt;/div&gt;
+	
+	&lt;script src="/js/vendor/jquery.min.js"&gt;&lt;/script&gt;
+	&lt;script src="/js/app.js"&gt;&lt;/script&gt;
+	
+	&lt;/body&gt;
+	&lt;/html&gt;
+</code></pre>
+
+
+    <!-- 				fixit copy, code comments -->
+    <p class="lh-copy">hbs</p>
+    
+<pre><code class="language-handlebars">
+	&lt;h2&gt;Demo page (rendered with global wrapper)&lt;/h2&gt;
+	
+	&lt;h3&gt;Fish: &#123;&#123;fish&#125;&#125;&lt;/h3&gt;
+	&lt;h3&gt;Dish: &#123;&#123;dish&#125;&#125;&lt;/h3&gt;
+	
+	&lt;ul&gt;
+	  &#123;&#123;#each planets&#125;&#125;
+	  &lt;li&gt;&#123;&#123;this&#125;&#125;&lt;/li&gt;
+	  &#123;&#123;/each&#125;&#125;
+	&lt;/ul&gt;
+</code></pre>
+
+
+
+
+    <div class="pt3 fw7 f3 mb2">Template Locals (Global Variables)</div>
+    <!-- fixit copy -->
+    <p class="lh-copy">need to make an arbitrary variable/array available to all the templates? use $GLOBALS['locals'] (hold for
+      laugh)
+      but seriously, folks, treat it like an array and whatever you need. and if it's an array is something you can
+      iterate over. and, of course, all of this is available to the application as $GLOBALS['locals']['numbers'] or
+      whatever</p>
+
+    <div class="cf">
+      <div class="fl w-50 pr3">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">php example</p>
+        
+<pre><code class="language-php">
+	$GLOBALS['locals']['eat_this'] = "breakfast";
+</code></pre>
+      </div>
+
+
+      <div class="fl w-50">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">hbs</p>
+        
+<pre><code class="language-handlebars">
+	Let's have &#123;&#123;locals.eat_this&#125;&#125; for dinner.
+</code></pre>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="cf">
+      <div class="fl w-50 pr3">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">php example</p>
+        
+<pre><code class="language-php">
+	$GLOBALS['locals']['colors'] = array('red', 'salmon', 'lilac', 'azul');
+</code></pre>
+
+      </div>
+
+
+      <div class="fl w-50">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">hbs</p>
+        
+<pre><code class="language-handlebars">
+	&lt;ul&gt;
+	  &#123;&#123;#each locals.colors&#125;&#125;
+	  &lt;li&gt;&#123;&#123;this&#125;&#125;&lt;/li&gt;
+	  &#123;&#123;/each&#125;&#125;
+	&lt;/ul&gt;
+</code></pre>
+
+      </div>
+
+    </div>
+
+
+
+  </section>
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+		<footer class="tr cf pv3">
+				<div class="f1"><a class="black no-underline" href="https://hxgf.io/">⧉</a></div>
+				<div class="f7 lh-copy">
+			&copy; 2022 <a class="black" href="https://hxgf.io/">HXGF</a><br />
+(CC) <a class="black" href="https://creativecommons.org/licenses/by-sa/3.0/us/">BY-SA 3.0</a>
+				</div>
+		</footer>
+	
+  <div class="tc pv3">
+    <a target="_blank" href="https://hxgf.io"><img class="w3 dib" src="./images/hxgf-bug.png" /></a><br />
+    <a target="_blank" class="f6 black" href="https://github.com/hxgf/darkwave.ltd">src</a>
+  </div>
+
+	
+
+	</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	if (window.location.hash){
+		document.getElementById(window.location.hash.replace('#','')).scrollIntoView();	
+	}
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

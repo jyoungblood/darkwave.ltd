@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+
+  <title>obelisk - darkwave 0.4.0</title>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="./css/lib/tachyons.min.css" />
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"> -->
+
+  <!-- <script src="./js/lib/jquery.min.js"></script> -->
+  <!-- <script src="//unpkg.com/alpinejs" defer></script> -->
+
+  <!-- <script src="./js/lib/instant.page.min.js"></script> -->
+  <!-- <script src="https://cdn.skypack.dev/@hotwired/turbo"></script> -->
+
+</head>
+<body class="h-100">
+
+
+
+
+<style>
+  /* 	make it mono!! */
+  @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap');
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  .sys-blue {
+    color: blue;
+  }
+
+  body {
+    /* 	background-color: black; */
+    /* 	color: white; */
+  }
+
+  body {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+</style>
+
+
+
+
+
+
+
+<!-- custom version of prism: https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+apacheconf+handlebars+markup-templating+nginx+php+sql&plugins=normalize-whitespace+toolbar+copy-to-clipboard -->
+
+<link rel="stylesheet" href="./css/prism.dw.css" />
+<script src="./js/prism.dw.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+
+<!-- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet"> -->
+
+<style>
+
+	pre[class*="language-"] {
+		border-radius: 0;
+	}
+
+	code[class*="language-"],
+	pre[class*="language-"] {
+	/* 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; */
+		font-family: 'Fira Code', monospace;
+/* 		font-family: 'IBM Plex Mono', monospace; */
+		font-size: 0.9rem;
+		line-height: 1.55;
+		margin-bottom: 1.5rem;
+		background: #1d1d1d;
+	}
+	
+	.f7{
+	  font-size: .675rem;
+	}
+	
+	.sidebar-nav a:hover{
+		text-decoration: underline;
+	}
+	
+	@media screen and (min-width: 48em){
+		.content-frame{
+			margin-left: 20%;
+		}	
+	}
+	
+	body{
+		color: #111;
+	}
+</style>
+
+
+
+
+
+	<div class="w-20-ns w-100 pa3 h-100-ns overflow-auto-ns fixed-ns top-0 left-0">
+
+		<a href="/" class="f2 tracked-tight near-black no-underline">▲▼</a>
+		
+		<div class="f5 mb2 fw7 lh-title"><a class="near-black no-underline" href="/">darkwave &mdash; obelisk</a></div>
+
+		<div class="bw2 bt b--near-black mb3"></div>
+
+<!-- 		sidebar menu -->
+		<div class="sidebar-nav">
+
+			<div class="mb2">
+	      <a href="/obelisk#routing" class="near-black no-underline fw7 f6">URL Routing</a>
+			</div>
+	      <div class="pl1 f7">
+		      <a href="/obelisk#routing-http-verbs" class="near-black no-underline dib mb2 lh-title">Routing with HTTP verbs</a><br />
+		      <a href="/obelisk#routing-any-all" class="near-black no-underline dib mb2 lh-title">Accepting any/all matching HTTP requests</a>
+	      </div>
+
+		</div>
+
+	</div>
+	
+	<div class="content-frame w-80-ns w-100 h-100">
+	<div class="h-100 pa3 pl0-ns">
+
+
+
+
+
+
+
+
+
+
+
+
+  <section id="home" class="h-100 bg-near-black">
+
+		<div class="dt h-100 center">
+		  <div class="dtc h-100 v-mid tc">
+			  <div class="f-headline mb3 moon-gray">≢</div>
+		  </div>
+		</div>
+
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+
+
+1 - introduce concept
+2 - describe base setup / install ((install cash & make mods where noted in obelisk-ce codebase))
+	setting up the settings, adding relevant credentials
+3 - patterns for doing specific things
+	installation process (install deps)
+	copy paste settings/dw-compatible modules
+
+---
+---
+
+
+<br /><br />
+
+obelisk - dw-compatible shared microservices
+	focus on heavy lifting, fast/concurrent processing
+	only one 'complex' app to maintain, share complex functionality across applications
+	small-scale (just for your own stuff), run it on a single vps (or scale it if you want, i don't give a shit)
+
+
+
+
+<br /><br />
+
+
+
+
+onelisk-dw
+- why obelisk?
+	- limited size/scope/complexity (obelisks are small, around 10ft)
+	- it's a little monolith
+		- carved from a single block of stone
+			- ok so there's more than one piece, but the 'stone' is all code...slab...and instead of chiseling away REMOVING unnecessary rock, you 'hammer'[or whatever, hack] away and putting all the pieces you need into one thing and kinda like glue it together
+	- people have built tons of them, if you have a palace or temple or whatever just build however however many you need to aid with your...decorations? religious rituals? (what practical purpose did monoliths serve?)
+
+
+
+
+<br /><br />
+
+
+obelisk-dw (dw-compatible obelisk, pull from custom ce stuff) - specialized - processing uploads, image resizing, twilio, etc ... complex/heavy back end functionality for dw apps ... boilerplate/components/patterns for dw 
+	high-powered asynchronous web services for dw (abstractions for sockets, push, complex microservices, heavy operations [media conversion/generation]
+	boilerplate for writing custom
+	designed to be deployed on a vps/wherever (where you can connect to a dw db), but doesn't have to be the same machine as the dw app, you interact w/ it over http
+
+
+	implemented as collection of (gitlab-equivalent) gists w/ setup/install instruction
+		like this: https://gist.github.com/bekce/2fedd3fdcd4a532169f9e3d193623a57
+
+		copy/paste example code for common (or specialized, idc) use cases
+
+	catalogued on a web site (that's searchable) - like darkwave.ltd/obelisk
+		-- need more power? have a lot of these sites on the same machine? build an obelisk! (multi-tenant system-level shared microservices) (you build custom code for your dw app, copy-paste these gists)
+
+
+
+
+accessing the settings: $.settings[site_code].mysql.host
+
+
+
+settings look like this:
+
+
+  "SITECODE": {
+
+    mysql: {
+      host: '',
+      user: '',
+      password: '',
+      database: ''
+    },
+
+    imap: {
+      host: '',
+      user: '',
+      password: '',
+    },
+
+  }
+
+
+
+
+
+<br /><br />
+
+
+------------
+------------
+------------
+
+
+
+
+
+
+
+
+# FUNCTIONALITY (patterns from obelisk-ce)
+
+v1 - current (shared) CE needs
+
+- [ ] discussion-receive updates
+	- [x] what to do if there are no messages? (don't show an error, just don't do anything)
+	- [ ] kill debugging properties
+	- [ ] support emojis from email plain text (plain text encoded as ut8?)
+	- [ ] save attachments as files & upload to s3 -- it's all there, just needs to be set up, debugged
+
+- [ ] send text from twilio
+
+- [ ] upload fine (for DAA + investors + JCDV)
+
+- [ ] upload dropzone
+
+
+
+v2 - add cb functionality
+
+- [ ] web push notifications (import from cb-web-push)
+
+
+v3 - ??
+
+- [ ] bitly
+- [ ] nodemailer proxy (see publicworks.static.city) - mailgun send
+
+- [ ] local weather db - once an hour or whatever, update the local weather, all sites use the weather.json (currently either in owlcam or exec sign?)
+- [ ] sharp image compression
+- [ ] upload to s3/wasabi (/edit/remove)
+- [ ] generate pdfs (proxy for relaxdjs/whatever, feed it html & save a pdf in a given location)
+
+- [ ] geospatial data/geocoding
+- [ ] web scraping - go to this address, find these fields, and put them in this db/table
+- [ ] web sockets (socket.io, see tmp-socket-server)
+
+- [ ] garbage collection?
+- [ ] backup services?
+- [ ] send stats/errors to dashboard?
+- [ ] analytics/reporting?
+
+
+
+FUTURE UPDATES (best practices)
+- [ ] pm2 run in cluster mode (load balancing)
+	- https://pm2.io/docs/runtime/guide/load-balancing/
+	- https://pm2.keymetrics.io/docs/usage/cluster-mode/
+	- currently don't need to for CE, but might be helpful for future projects
+- [ ] disable warning for process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+	- idc that i have to do it and i don't want the warnings filling up my logs w/ that shit
+	- ideally want to resolve SSL issues, but have to do this for email (node-imap) and twilio
+- [ ] ?? access tokens for each client?
+- [ ] discussion-receive - can it receive mail directly from cpanel? or new mail triggers a php script that calls the inbound route w/ http? - change it so the script isn't executing once a minute
+
+
+
+
+
+--------
+--------
+--------
+
+<br /><br />
+
+
+- cool idea!
+	- build a system-level go microservice that provides http endpoints for doing common web app things - complex functionality like file uploads, image processing, authentication, etc (interacting w/ 3rd party services like twilio & mailgun, producing pdfs) .. custom for CE sites, simple "bare bones" version that just does image processing and whatever for running on eqkh
+	- does all the heavy lifting
+	- application-agnostic, just give it the path/perms for where your files end up, creds for executing actions w/ 3rd party services on your behalf
+
+
+- shared local microservices
+	- designed to be run on a single vps and shared across local applications
+	- allows applications to share 3rd party api services (or not)
+
+- purhost system microservice
+
+	-- want to do a shared system-level utility that can be used by many sites on the same vps
+	- after doing one for CE, put it on eqkh as well
+
+
+
+Obelisk is specific formation(?), custom (dw-compatible) code built on cash.js (generic boilerplate tool)
+  Specifically: multi-tenant shared microservices 
+
+	Use cash to build an obelisk 
+
+
+
+build an obelisk with whatever you want (i use cash)
+	rails, go, python, rust, i don't give a shit
+	important part of obelisk is api & functionality (in needs to do the same thing and accept http commands at the right addressesses) (for dorkwave use, at least)
+
+obelisk is use-case specific - you build your own code suited to your own needs - but build w/ the same conventions (creating re-usable solutions that can be used for future projects, where appropriate)
+
+
+
+---
+
+---
+
+<br /><br />
+current users: daa
+
+future users (ce): oip, mgmt, jcdv, tenants? signage? owlcam? ultimately cb
+
+future users (eqkh): crag? print shop? static city? equus (showrunner, equipost, eqcms, idk?)
+
+---
+
+- default deployment/design
+	- localhost:6969
+	- accessible via ip address
+		- xx.xx.xx.xx:6969
+		- or behind domains
+			- oblsk.systemhost.com
+
+
+
+
+
+
+
+<br /><br /><br />
+
+
+
+
+
+
+obelisk docs
+
+// example var usage
+
+```
+// $.settings[site_code].mailgun.key
+// __dirname + '/'
+
+```
+
+// example mysql (read rows)
+
+```
+// // working 👍
+// $.db[site_code].select().table('users').then(function(rows){
+
+//   var emstr = '';
+//   var email_addies = rows.map(async (row) => {
+//     // email_addies += ' ' + row.email;
+//     // console.log(row.email)
+//     emstr += ' ' + row.email;
+//     return row.email;
+//   });
+
+//   Promise.all(email_addies).then(function(email_addies_array){
+
+//     res.json({
+//       site_code: site_code,
+//       email_addies_array: email_addies_array,
+//       emstr: emstr
+//     });
+
+//   });
+
+// });
+```
+
+obelisk functions?
+
+```jsx
+$.uniqid = function (a = "", b = false) {
+  const c = Date.now() / 1000;
+  let d = c.toString(16).split(".").join("");
+  while (d.length < 14) d += "0";
+  let e = "";
+  if (b) {
+    e = ".";
+    e += Math.round(Math.random() * 100000000);
+  }
+  return a + d + e;
+};
+
+$.unix_time = function () {
+  return Math.floor(new Date() / 1000);
+}
+```
+
+[dw obelisk docs]
+easy [socket.io](http://socket.io/) setup, easy knex setup, & copy paste examples for working w popular libs (crud w knex, socket pubsub, etc)
+
+where to go for more, which libs to use if you need to do 'x' (multer, morgan, knex, planer, knox, nodemailer, etc) - & have setup guides for all of it (stuff you need to add for nodemailer to work right, etc)
+
+dw obelisk docs
+
+example code (here's how you do a loop over mysql results, here's how you upload to amazon, etc)
+
+want to have a 'best practices' guide / cheatsheet for developing and deploying apis w/ express/node
+
+setup guides for all of it (stuff you need to add for nodemailer to work right, etc)
+
+// example var usage
+
+// $.settings[site_code].mailgun.key
+
+// __dirname + '/'
+
+quick & easy crash course / copy/paste code samples for how to do stuff w/ express/ca$h
+
+req.body.id vs req.params.id vs req.query.id
+
+app.use, app.post, app.get
+
+error handling? i believe this is the BEST way to handle errors? https://thecodebarbarian.com/80-20-guide-to-express-error-handling
+
+copy/paste code for making requests w/ request (see obelisk-ce, callback for sending notifications)
+
+
+
+<br /><br /><br /><br />
+
+dw-obelisk api spec
+- set up these endpoints, that take these parameters, do these things (in this way?), and return data in this format
+(conventions for handling errors, etc)
+- ex: dw-add-photos-to-gallery, update gallery order, etc
+<br /><br /><br /><br />
+
+
+instructions for building an interdimensional obelisk @ ec2 (or other cloud service .. like google cloud run?)
+- cool to be able to write your stuff offline, then put it online on someone else's server and not have to fuck w/ anything to set it up
+- also instructions for setting up on a VPS, if you're into that (i am)
+
+<br /><br />
+
+dw obelisk - "custom microservices" - you build stuff specifically for your use case, using high-powered tools in the
+easiest way possible
+<br /><Br />
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section class="mb5 pt4" id="templates" >
+
+		<div class="bt bw3 mb2 b--near-black"></div>
+
+    <div class="f2 fw7 mb3">TEMPLATES</div>
+    <!-- 		fixit copy -->
+    <div class="mb3 black-50 lh-copy">something something templates go in ./pages and you can call them
+      whatever you want. you can organize this however you want, too! link to handlebars docs for more info.</div>
+
+
+    <div class="pt3 fw7 f3 mb2">Basic Variables</div>
+    <!-- 		fixit copy -->
+    <p class="lh-copy">the simplest thing to do. if you use render_template, stereo includes a few by default (year, etc) as well
+      as a few special things (is_admin, auth, user_id, etc) (title [uses the site title by default, so it's kinda
+      optional])</p>
+
+    <div class="cf">
+      <div class="fl w-50 pr3">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">php</p>
+
+        
+<pre><code class="language-php">
+	$app->get('/variable-example', function(){
+	  $GLOBALS['app']->render_template(array(
+	    'template' => 'demo',
+	    'data' => array(
+	      'fish' => 'salmon',
+	      'dish' => 'paella',
+	      'planet' => 'Nibiru'
+	    )
+	  ));
+	});
+</code></pre>
+
+      </div>
+
+
+      <div class="fl w-50">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">hbs (note about literals { { { } } } vs { { } } -- by default hbars doesn't parse html tags, so if you
+          want to have them rendered, do this)</p>
+
+<pre><code class="language-handlebars">
+	&lt;h2&gt;Simple Variables Example&lt;/h2&gt;
+	&lt;h3&gt;Cool Fish: &#123;&#123;fish&#125;&#125;&lt;/h3&gt;
+	&lt;h3&gt;Cool Dish: &#123;&#123;dish&#125;&#125;&lt;/h3&gt;
+	&lt;h3&gt;Cool Planet: &#123;&#123;planet&#125;&#125;&lt;/h3&gt;
+</code></pre>
+
+      </div>
+
+    </div>
+
+
+
+
+    <div class="pt3 fw7 f3 mb2">Iterating Arrays</div>
+    <!-- fixit copy -->
+    <p class="lh-copy">it's hella easy, just like a foreach loop. you can even nest the arrays to infinity (and beyond) (sorry) (it
+      can be as simple or complex as you want to make it) (see the demo controller/templates for an example of more
+      complex array iteration)</p>
+
+    <div class="cf">
+      <div class="fl w-50 pr3">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">php (simple & complex example from demo)</p>
+        
+<pre><code class="language-php">
+	$app->get('/array-example', function(){
+	  $GLOBALS['app']->render_template(array(
+	    'template' => 'demo',
+	    'data' => array(
+	      'snacks' => array(
+	        'Carrots',
+	        'Hay',
+	        'Sugar Cubes',
+	        'Oats',
+	        'Apples',
+	        'Weaker Horses'
+	      )
+	    )
+	  ));
+	});
+</code></pre>
+
+      </div>
+
+
+      <div class="fl w-50">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">hbs (simple & complex example from demo)</p>
+
+        
+<pre><code class="language-handlebars">
+	&lt;ul&gt;
+	  &#123;&#123;#each snacks&#125;&#125;
+	  &lt;li&gt;&#123;&#123;this&#125;&#125;&lt;/li&gt;
+	  &#123;&#123;/each&#125;&#125;
+	&lt;/ul&gt;
+</code></pre>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="pt3 fw7 f3 mb2">Simple Logic</div>
+    <!-- 		fixit copy -->
+    <p class="lh-copy">you can do some simple logic to check if a variable exists (or has value). if you would like to do more complex
+      logic, check out [if_either], [in_array], [is]</p>
+
+
+    <div class="cf">
+      <div class="fl w-50 pr3">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">php</p>
+        
+<pre><code class="language-php">
+	$app->get('/logic-example', function(){
+	  $GLOBALS['app']->render_template(array(
+	    'template' => 'demo',
+	    'data' => array(
+	      'fish' => 'salmon',
+	      'dish' => 'paella',
+	    )
+	  ));
+	});
+</code></pre>
+
+      </div>
+
+
+      <div class="fl w-50">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">hbs (if/else, unless, (normal hbars logic, link to hbars docs) maybe is & link to helpers)</p>
+
+        
+<pre><code class="language-handlebars">
+	&#123;&#123;#if fish&#125;&#125;
+	 Salmon is available
+	&#123;&#123;else&#125;&#125; // this won't show:
+	 No salmon for you.
+	&#123;&#123;/if&#125;&#125;
+	
+	&#123;&#123;#unless snacks&#125;&#125;
+	 No snacks available. We have &#123;&#123;dish&#125;&#125, though.
+	&#123;&#123;else&#125;&#125; // this won't show:
+	 Look at all the snack options:
+	 &#123;&#123;#each snacks&#125;&#125;
+	 - &#123;&#123;this&#125;&#125; &lt;br /&gt;
+	 &#123;&#123;/each&#125;&#125;
+	&#123;&#123;/unless&#125;&#125;
+</code></pre>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="pt3 fw7 f3 mb2">Partials</div>
+    <!-- fixit copy -->
+    <p class="lh-copy">You can include templates in other templates! That is neat! all your partials need to be in the _partials
+      directory, but you can organize that however you want!</p>
+
+    <div class="cf">
+      <div class="fl w-50 pr3">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">normal php whatever example</p>
+        
+<pre><code class="language-php">
+	$app->get('/partials-example', function(){
+	  $GLOBALS['app']->render_template(array(
+	    'template' => 'demo',
+	    'data' => array(
+	      'fish' => 'salmon',
+	      'dish' => 'paella',
+	      'planet' => 'Nibiru'
+	    )
+	  ));
+	});
+</code></pre>
+
+      </div>
+
+
+      <div class="fl w-50">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">hbs</p>
+
+        
+<pre><code class="language-handlebars">
+	&lt;h2&gt;Demo page (rendered with partial from separate template)&lt;/h2&gt;
+	
+	&lt;h3&gt;Fish: &#123;&#123;fish&#125;&#125;&lt;/h3&gt;
+	&lt;h3&gt;Dish: &#123;&#123;dish&#125;&#125;&lt;/h3&gt;
+	
+	&#123;&#123;&gt; planets-partial&#125;&#125;
+</code></pre>
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">hbs (partial code) (see how it has access to the same data?)</p>
+
+        
+<pre><code class="language-handlebars">
+	&lt;ul&gt;
+	  &#123;&#123;#each planets&#125;&#125;
+	  &lt;li&gt;&#123;&#123;this&#125;&#125;&lt;/li&gt;
+	  &#123;&#123;/each&#125;&#125;
+	&lt;/ul&gt;
+</code></pre>
+
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="pt3 fw7 f3 mb2">Global Layouts</div>
+    <!-- fixit copy -->
+    <p class="lh-copy">if you want to use a global header footer, you can! you can define as many global wrappers/layouts as you
+      want (like express, django, ember, whatever...wow!) if you leave the "layout" parameter blank, STEREO will use the
+      layout in ./pages/_layouts/base.hbs by default. your content will be rendered where the [[outlet]] part is</p>
+
+
+
+    <!-- 				fixit copy, code comments -->
+    <p class="lh-copy">php example</p>
+    
+<pre><code class="language-php">
+	$app->get('/layouts-example', function(){
+	  $GLOBALS['app']->render_template(array(
+	    'template' => 'demo',
+	    'title' => 'Site Title Whatever',
+	    'layout' => 'admin',  // false for nothing, base by default
+	    'data' => array(
+	      'fish' => 'salmon',
+	      'dish' => 'paella',
+	      'planets' => array(
+	        'Mercury', 'Venus', 'Earth', 'Nibiru'
+	      )
+	    )
+	  ));
+	});
+</code></pre>
+
+
+    <!-- 				fixit copy, code comments -->
+    <p class="lh-copy">hbs (wrapper)</p>
+
+    
+<pre><code class="language-handlebars">
+	&lt;!DOCTYPE html&gt;
+	&lt;html&gt;
+	&lt;head&gt;
+	  &lt;title&gt;&#123;&#123;title&#125;&#125;&lt;/title&gt;
+	  &lt;meta charset="utf-8" /&gt;
+	  &lt;meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" /&gt;
+	  &lt;link rel="stylesheet" href="/css/app.css" /&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	
+	  &lt;div class="header"&gt;&lt;h1&gt;Site Title Whatever&lt;/h1&gt;&lt;/div&gt;
+	
+	  &lt;div class="container"&gt;
+	    [[outlet]]  // this is where the content will be rendered
+	  &lt;/div&gt;
+	
+	  &lt;div class="footer"&gt;(c) &#123;&#123;year&#125;&#125; -- All rights reserved or whatever.&lt;/div&gt;
+	
+	&lt;script src="/js/vendor/jquery.min.js"&gt;&lt;/script&gt;
+	&lt;script src="/js/app.js"&gt;&lt;/script&gt;
+	
+	&lt;/body&gt;
+	&lt;/html&gt;
+</code></pre>
+
+
+    <!-- 				fixit copy, code comments -->
+    <p class="lh-copy">hbs</p>
+    
+<pre><code class="language-handlebars">
+	&lt;h2&gt;Demo page (rendered with global wrapper)&lt;/h2&gt;
+	
+	&lt;h3&gt;Fish: &#123;&#123;fish&#125;&#125;&lt;/h3&gt;
+	&lt;h3&gt;Dish: &#123;&#123;dish&#125;&#125;&lt;/h3&gt;
+	
+	&lt;ul&gt;
+	  &#123;&#123;#each planets&#125;&#125;
+	  &lt;li&gt;&#123;&#123;this&#125;&#125;&lt;/li&gt;
+	  &#123;&#123;/each&#125;&#125;
+	&lt;/ul&gt;
+</code></pre>
+
+
+
+
+    <div class="pt3 fw7 f3 mb2">Template Locals (Global Variables)</div>
+    <!-- fixit copy -->
+    <p class="lh-copy">need to make an arbitrary variable/array available to all the templates? use $GLOBALS['locals'] (hold for
+      laugh)
+      but seriously, folks, treat it like an array and whatever you need. and if it's an array is something you can
+      iterate over. and, of course, all of this is available to the application as $GLOBALS['locals']['numbers'] or
+      whatever</p>
+
+    <div class="cf">
+      <div class="fl w-50 pr3">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">php example</p>
+        
+<pre><code class="language-php">
+	$GLOBALS['locals']['eat_this'] = "breakfast";
+</code></pre>
+      </div>
+
+
+      <div class="fl w-50">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">hbs</p>
+        
+<pre><code class="language-handlebars">
+	Let's have &#123;&#123;locals.eat_this&#125;&#125; for dinner.
+</code></pre>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="cf">
+      <div class="fl w-50 pr3">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">php example</p>
+        
+<pre><code class="language-php">
+	$GLOBALS['locals']['colors'] = array('red', 'salmon', 'lilac', 'azul');
+</code></pre>
+
+      </div>
+
+
+      <div class="fl w-50">
+
+        <!-- 				fixit copy -->
+        <p class="lh-copy">hbs</p>
+        
+<pre><code class="language-handlebars">
+	&lt;ul&gt;
+	  &#123;&#123;#each locals.colors&#125;&#125;
+	  &lt;li&gt;&#123;&#123;this&#125;&#125;&lt;/li&gt;
+	  &#123;&#123;/each&#125;&#125;
+	&lt;/ul&gt;
+</code></pre>
+
+      </div>
+
+    </div>
+
+
+
+  </section>
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+		<footer class="tr cf pv3">
+				<div class="f1"><a class="black no-underline" href="https://hxgf.io/">⧉</a></div>
+				<div class="f7 lh-copy">
+			&copy; 2022 <a class="black" href="https://hxgf.io/">HXGF</a><br />
+(CC) <a class="black" href="https://creativecommons.org/licenses/by-sa/3.0/us/">BY-SA 3.0</a>
+				</div>
+		</footer>
+	
+
+    <div class="tc pv3">
+      <a target="_blank" href="https://hxgf.io"><img class="w3 dib" src="./images/hxgf-bug.png" /></a><br />
+      <a target="_blank" class="f6 black" href="https://github.com/hxgf/darkwave.ltd">src</a>
+    </div>
+
+	
+
+	</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	if (window.location.hash){
+		document.getElementById(window.location.hash.replace('#','')).scrollIntoView();	
+	}
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

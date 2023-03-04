@@ -1,58 +1,3 @@
-<!DOCTYPE html>
-<html class="h-100">
-<head>
-
-  <title>docs - darkwave 0.5.0</title>
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="stylesheet" href="./css/lib/tachyons.min.css" />
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-  <!-- <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"> -->
-
-  <!-- <script src="./js/lib/jquery.min.js"></script> -->
-  <!-- <script src="//unpkg.com/alpinejs" defer></script> -->
-
-  <!-- <script src="./js/lib/instant.page.min.js"></script> -->
-  <!-- <script src="https://cdn.skypack.dev/@hotwired/turbo"></script> -->
-
-</head>
-<body class="h-100">
-
-
-
-
-<style>
-  /* 	make it mono!! */
-  @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap');
-
-  body {
-    font-family: 'IBM Plex Sans', sans-serif;
-  }
-
-  .sys-blue {
-    color: blue;
-  }
-
-  body {
-    /* 	background-color: black; */
-    /* 	color: white; */
-  }
-
-  body {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-</style>
-
-
-
-
-
-
-
-
 <!-- custom version of prism: https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+apacheconf+handlebars+markup-templating+nginx+php+sql&plugins=normalize-whitespace+toolbar+copy-to-clipboard -->
 
 <link rel="stylesheet" href="./css/prism.dw.css" />
@@ -63,70 +8,67 @@
 <!-- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet"> -->
 
 <style>
+  pre[class*="language-"] {
+    border-radius: 0;
+  }
 
-	pre[class*="language-"] {
-		border-radius: 0;
-	}
+  code[class*="language-"],
+  pre[class*="language-"] {
+    /* 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; */
+    font-family: 'Fira Code', monospace;
+    /* 		font-family: 'IBM Plex Mono', monospace; */
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+    background: #1d1d1d;
+  }
 
-	code[class*="language-"],
-	pre[class*="language-"] {
-	/* 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; */
-		font-family: 'Fira Code', monospace;
-/* 		font-family: 'IBM Plex Mono', monospace; */
-		font-size: 0.9rem;
-		line-height: 1.55;
-		margin-bottom: 1.5rem;
-		background: #1d1d1d;
-	}
-	
-	.f7{
-	  font-size: .675rem;
-	}
-	
-	.sidebar-nav a:hover{
-		text-decoration: underline;
-	}
-	
-	@media screen and (min-width: 48em){
-		.content-frame{
-			margin-left: 20%;
-		}	
-	}
+  .f7 {
+    font-size: .675rem;
+  }
+
+  .sidebar-nav a:hover {
+    text-decoration: underline;
+  }
+
+  @media screen and (min-width: 48em) {
+    .content-frame {
+      margin-left: 20%;
+    }
+  }
 </style>
 
 
 
 
 
-	<div class="w-20-ns w-100 pa3 h-100-ns overflow-auto-ns fixed-ns top-0 left-0">
+<div class="w-20-ns w-100 pa3 h-100-ns overflow-auto-ns fixed-ns top-0 left-0">
 
-		<a href="/" class="f2 tracked-tight near-black no-underline">▲▼</a>
-		
-		<div class="f5 mb2 fw7 lh-title"><a class="near-black no-underline" href="/">darkwave &mdash; 0.5.0</a></div>
+  <a href="/" class="f2 tracked-tight near-black no-underline">▲▼</a>
 
-		<div class="bw2 bt b--near-black mb3"></div>
+  <div class="f5 mb2 fw7 lh-title"><a class="near-black no-underline" href="/">darkwave &mdash; 0.5.0</a></div>
 
-<!-- 		sidebar menu -->
-		<div class="sidebar-nav">
+  <div class="bw2 bt b--near-black mb3"></div>
 
-			<div class="mb2">
-	      <a href="/docs#routing" class="near-black no-underline fw7 f6">URL Routing</a>
-			</div>
-	      <div class="pl1 f7">
-		      <a href="/docs#routing-http-verbs" class="near-black no-underline dib mb2 lh-title">Routing with HTTP verbs</a><br />
-		      <a href="/docs#routing-any-all" class="near-black no-underline dib mb2 lh-title">Accepting any/all matching HTTP requests</a>
-	      </div>
+  <!-- 		sidebar menu -->
+  <div class="sidebar-nav">
 
-		</div>
+    <div class="mb2">
+      <a href="/docs#routing" class="near-black no-underline fw7 f6">URL Routing</a>
+    </div>
+    <div class="pl1 f7">
+      <a href="/docs#routing-http-verbs" class="near-black no-underline dib mb2 lh-title">Routing with HTTP
+        verbs</a><br />
+      <a href="/docs#routing-any-all" class="near-black no-underline dib mb2 lh-title">Accepting any/all matching HTTP
+        requests</a>
+    </div>
 
-	</div>
-	
-	<div class="content-frame w-80-ns w-100 h-100">
-	<div class="h-100 pa3 pl0-ns">
+  </div>
 
+</div>
 
-
-
+<div class="content-frame w-80-ns w-100 h-100">
+  <div class="h-100 pa3 pl0-ns">
 
 
 
@@ -135,19 +77,19 @@
 
 
 
-  <section id="home" class="h-100 bg-near-black">
-
-		<div class="dt h-100 center">
-		  <div class="dtc h-100 v-mid tc">
-			  <div class="f-headline mb3 moon-gray">⊹</div>
-		  </div>
-		</div>
-
-  </section>
 
 
 
 
+    <section id="home" class="h-100 bg-near-black">
+
+      <div class="dt h-100 center">
+        <div class="dtc h-100 v-mid tc">
+          <div class="f-headline mb3 moon-gray">⊹</div>
+        </div>
+      </div>
+
+    </section>
 
 
 
@@ -174,17 +116,21 @@
 
 
 
-<div>
 
 
 
-<br /><br /><br /><br />
 
-<h2>[DOCS ARE COMING SOON]</h2>
-<h3>not a lot of free time these days...</h3>
-<br /><br /><br /><br />
+    <div>
 
-<!-- 
+
+
+      <br /><br /><br /><br />
+
+      <h2>[DOCS ARE COMING SOON]</h2>
+      <h3>not a lot of free time these days...</h3>
+      <br /><br /><br /><br />
+
+      <!-- 
 dw - specialized functionality/components/patterns for building complex web applications quickly -- toolkit for building custom admins and the sites they power
 
 
@@ -797,7 +743,7 @@ polyfills for supporting older browsers?
 
 
 
-</div>
+    </div>
 
 
 
@@ -887,11 +833,11 @@ polyfills for supporting older browsers?
 
 
 
-  <section class="mb5 pt4" id="templates" >
+    <section class="mb5 pt4" id="templates">
 
-		<div class="bt bw3 mb2 b--near-black"></div>
+      <div class="bt bw3 mb2 b--near-black"></div>
 
-    <div class="f2 fw7 mb3">TEMPLATES</div>
+      <div class="f2 fw7 mb3">TEMPLATES</div>
 
 
 
@@ -899,8 +845,8 @@ polyfills for supporting older browsers?
 
 
 
-<p class="lh-copy">
-<!-- 
+      <p class="lh-copy">
+        <!-- 
 ---
 
 DW components gh (save components for docs & delete from gh)
@@ -977,25 +923,26 @@ https://github.com/hxgf/dw-blog-lexxi
 
 
 
-    <!-- 		fixit copy -->
-    <!-- <div class="mb3 black-50 lh-copy">something something templates go in ./pages and you can call them
+        <!-- 		fixit copy -->
+        <!-- <div class="mb3 black-50 lh-copy">something something templates go in ./pages and you can call them
       whatever you want. you can organize this however you want, too! link to handlebars docs for more info.</div> -->
 
 
-    <div class="pt3 fw7 f3 mb2">Basic Variables</div>
-    <!-- 		fixit copy -->
-    <p class="lh-copy">the simplest thing to do. if you use render_template, stereo includes a few by default (year, etc) as well
-      as a few special things (is_admin, auth, user_id, etc) (title [uses the site title by default, so it's kinda
-      optional])</p>
+      <div class="pt3 fw7 f3 mb2">Basic Variables</div>
+      <!-- 		fixit copy -->
+      <p class="lh-copy">the simplest thing to do. if you use render_template, stereo includes a few by default (year,
+        etc) as well
+        as a few special things (is_admin, auth, user_id, etc) (title [uses the site title by default, so it's kinda
+        optional])</p>
 
-    <div class="cf">
-      <div class="fl w-50 pr3">
+      <div class="cf">
+        <div class="fl w-50 pr3">
 
-        <!-- 				fixit copy -->
-        <p class="lh-copy">php</p>
+          <!-- 				fixit copy -->
+          <p class="lh-copy">php</p>
 
-        
-<pre><code class="language-php">
+
+          <pre><code class="language-php">
 	$app->get('/variable-example', function(){
 	  $GLOBALS['app']->render_template(array(
 	    'template' => 'demo',
@@ -1008,42 +955,44 @@ https://github.com/hxgf/dw-blog-lexxi
 	});
 </code></pre>
 
-      </div>
+        </div>
 
 
-      <div class="fl w-50">
+        <div class="fl w-50">
 
-        <!-- 				fixit copy -->
-        <p class="lh-copy">hbs (note about literals { { { } } } vs { { } } -- by default hbars doesn't parse html tags, so if you
-          want to have them rendered, do this)</p>
+          <!-- 				fixit copy -->
+          <p class="lh-copy">hbs (note about literals { { { } } } vs { { } } -- by default hbars doesn't parse html
+            tags, so if you
+            want to have them rendered, do this)</p>
 
-<pre><code class="language-handlebars">
+          <pre><code class="language-handlebars">
 	&lt;h2&gt;Simple Variables Example&lt;/h2&gt;
 	&lt;h3&gt;Cool Fish: &#123;&#123;fish&#125;&#125;&lt;/h3&gt;
 	&lt;h3&gt;Cool Dish: &#123;&#123;dish&#125;&#125;&lt;/h3&gt;
 	&lt;h3&gt;Cool Planet: &#123;&#123;planet&#125;&#125;&lt;/h3&gt;
 </code></pre>
 
+        </div>
+
       </div>
 
-    </div>
 
 
 
+      <div class="pt3 fw7 f3 mb2">Iterating Arrays</div>
+      <!-- fixit copy -->
+      <p class="lh-copy">it's hella easy, just like a foreach loop. you can even nest the arrays to infinity (and
+        beyond) (sorry) (it
+        can be as simple or complex as you want to make it) (see the demo controller/templates for an example of more
+        complex array iteration)</p>
 
-    <div class="pt3 fw7 f3 mb2">Iterating Arrays</div>
-    <!-- fixit copy -->
-    <p class="lh-copy">it's hella easy, just like a foreach loop. you can even nest the arrays to infinity (and beyond) (sorry) (it
-      can be as simple or complex as you want to make it) (see the demo controller/templates for an example of more
-      complex array iteration)</p>
+      <div class="cf">
+        <div class="fl w-50 pr3">
 
-    <div class="cf">
-      <div class="fl w-50 pr3">
+          <!-- 				fixit copy -->
+          <p class="lh-copy">php (simple & complex example from demo)</p>
 
-        <!-- 				fixit copy -->
-        <p class="lh-copy">php (simple & complex example from demo)</p>
-        
-<pre><code class="language-php">
+          <pre><code class="language-php">
 	$app->get('/array-example', function(){
 	  $GLOBALS['app']->render_template(array(
 	    'template' => 'demo',
@@ -1061,16 +1010,16 @@ https://github.com/hxgf/dw-blog-lexxi
 	});
 </code></pre>
 
-      </div>
+        </div>
 
 
-      <div class="fl w-50">
+        <div class="fl w-50">
 
-        <!-- 				fixit copy -->
-        <p class="lh-copy">hbs (simple & complex example from demo)</p>
+          <!-- 				fixit copy -->
+          <p class="lh-copy">hbs (simple & complex example from demo)</p>
 
-        
-<pre><code class="language-handlebars">
+
+          <pre><code class="language-handlebars">
 	&lt;ul&gt;
 	  &#123;&#123;#each snacks&#125;&#125;
 	  &lt;li&gt;&#123;&#123;this&#125;&#125;&lt;/li&gt;
@@ -1078,28 +1027,29 @@ https://github.com/hxgf/dw-blog-lexxi
 	&lt;/ul&gt;
 </code></pre>
 
+        </div>
+
       </div>
 
-    </div>
 
 
 
 
 
+      <div class="pt3 fw7 f3 mb2">Simple Logic</div>
+      <!-- 		fixit copy -->
+      <p class="lh-copy">you can do some simple logic to check if a variable exists (or has value). if you would like to
+        do more complex
+        logic, check out [if_either], [in_array], [is]</p>
 
-    <div class="pt3 fw7 f3 mb2">Simple Logic</div>
-    <!-- 		fixit copy -->
-    <p class="lh-copy">you can do some simple logic to check if a variable exists (or has value). if you would like to do more complex
-      logic, check out [if_either], [in_array], [is]</p>
 
+      <div class="cf">
+        <div class="fl w-50 pr3">
 
-    <div class="cf">
-      <div class="fl w-50 pr3">
+          <!-- 				fixit copy -->
+          <p class="lh-copy">php</p>
 
-        <!-- 				fixit copy -->
-        <p class="lh-copy">php</p>
-        
-<pre><code class="language-php">
+          <pre><code class="language-php">
 	$app->get('/logic-example', function(){
 	  $GLOBALS['app']->render_template(array(
 	    'template' => 'demo',
@@ -1111,16 +1061,17 @@ https://github.com/hxgf/dw-blog-lexxi
 	});
 </code></pre>
 
-      </div>
+        </div>
 
 
-      <div class="fl w-50">
+        <div class="fl w-50">
 
-        <!-- 				fixit copy -->
-        <p class="lh-copy">hbs (if/else, unless, (normal hbars logic, link to hbars docs) maybe is & link to helpers)</p>
+          <!-- 				fixit copy -->
+          <p class="lh-copy">hbs (if/else, unless, (normal hbars logic, link to hbars docs) maybe is & link to helpers)
+          </p>
 
-        
-<pre><code class="language-handlebars">
+
+          <pre><code class="language-handlebars">
 	&#123;&#123;#if fish&#125;&#125;
 	 Salmon is available
 	&#123;&#123;else&#125;&#125; // this won't show:
@@ -1137,27 +1088,28 @@ https://github.com/hxgf/dw-blog-lexxi
 	&#123;&#123;/unless&#125;&#125;
 </code></pre>
 
+        </div>
+
       </div>
 
-    </div>
 
 
 
 
 
+      <div class="pt3 fw7 f3 mb2">Partials</div>
+      <!-- fixit copy -->
+      <p class="lh-copy">You can include templates in other templates! That is neat! all your partials need to be in the
+        _partials
+        directory, but you can organize that however you want!</p>
 
-    <div class="pt3 fw7 f3 mb2">Partials</div>
-    <!-- fixit copy -->
-    <p class="lh-copy">You can include templates in other templates! That is neat! all your partials need to be in the _partials
-      directory, but you can organize that however you want!</p>
+      <div class="cf">
+        <div class="fl w-50 pr3">
 
-    <div class="cf">
-      <div class="fl w-50 pr3">
+          <!-- 				fixit copy -->
+          <p class="lh-copy">normal php whatever example</p>
 
-        <!-- 				fixit copy -->
-        <p class="lh-copy">normal php whatever example</p>
-        
-<pre><code class="language-php">
+          <pre><code class="language-php">
 	$app->get('/partials-example', function(){
 	  $GLOBALS['app']->render_template(array(
 	    'template' => 'demo',
@@ -1170,16 +1122,16 @@ https://github.com/hxgf/dw-blog-lexxi
 	});
 </code></pre>
 
-      </div>
+        </div>
 
 
-      <div class="fl w-50">
+        <div class="fl w-50">
 
-        <!-- 				fixit copy -->
-        <p class="lh-copy">hbs</p>
+          <!-- 				fixit copy -->
+          <p class="lh-copy">hbs</p>
 
-        
-<pre><code class="language-handlebars">
+
+          <pre><code class="language-handlebars">
 	&lt;h2&gt;Demo page (rendered with partial from separate template)&lt;/h2&gt;
 	
 	&lt;h3&gt;Fish: &#123;&#123;fish&#125;&#125;&lt;/h3&gt;
@@ -1188,11 +1140,11 @@ https://github.com/hxgf/dw-blog-lexxi
 	&#123;&#123;&gt; planets-partial&#125;&#125;
 </code></pre>
 
-        <!-- 				fixit copy -->
-        <p class="lh-copy">hbs (partial code) (see how it has access to the same data?)</p>
+          <!-- 				fixit copy -->
+          <p class="lh-copy">hbs (partial code) (see how it has access to the same data?)</p>
 
-        
-<pre><code class="language-handlebars">
+
+          <pre><code class="language-handlebars">
 	&lt;ul&gt;
 	  &#123;&#123;#each planets&#125;&#125;
 	  &lt;li&gt;&#123;&#123;this&#125;&#125;&lt;/li&gt;
@@ -1201,9 +1153,10 @@ https://github.com/hxgf/dw-blog-lexxi
 </code></pre>
 
 
+        </div>
+
       </div>
 
-    </div>
 
 
 
@@ -1213,19 +1166,20 @@ https://github.com/hxgf/dw-blog-lexxi
 
 
 
+      <div class="pt3 fw7 f3 mb2">Global Layouts</div>
+      <!-- fixit copy -->
+      <p class="lh-copy">if you want to use a global header footer, you can! you can define as many global
+        wrappers/layouts as you
+        want (like express, django, ember, whatever...wow!) if you leave the "layout" parameter blank, STEREO will use
+        the
+        layout in ./pages/_layouts/base.hbs by default. your content will be rendered where the [[outlet]] part is</p>
 
-    <div class="pt3 fw7 f3 mb2">Global Layouts</div>
-    <!-- fixit copy -->
-    <p class="lh-copy">if you want to use a global header footer, you can! you can define as many global wrappers/layouts as you
-      want (like express, django, ember, whatever...wow!) if you leave the "layout" parameter blank, STEREO will use the
-      layout in ./pages/_layouts/base.hbs by default. your content will be rendered where the [[outlet]] part is</p>
 
 
+      <!-- 				fixit copy, code comments -->
+      <p class="lh-copy">php example</p>
 
-    <!-- 				fixit copy, code comments -->
-    <p class="lh-copy">php example</p>
-    
-<pre><code class="language-php">
+      <pre><code class="language-php">
 	$app->get('/layouts-example', function(){
 	  $GLOBALS['app']->render_template(array(
 	    'template' => 'demo',
@@ -1243,11 +1197,11 @@ https://github.com/hxgf/dw-blog-lexxi
 </code></pre>
 
 
-    <!-- 				fixit copy, code comments -->
-    <p class="lh-copy">hbs (wrapper)</p>
+      <!-- 				fixit copy, code comments -->
+      <p class="lh-copy">hbs (wrapper)</p>
 
-    
-<pre><code class="language-handlebars">
+
+      <pre><code class="language-handlebars">
 	&lt;!DOCTYPE html&gt;
 	&lt;html&gt;
 	&lt;head&gt;
@@ -1274,10 +1228,10 @@ https://github.com/hxgf/dw-blog-lexxi
 </code></pre>
 
 
-    <!-- 				fixit copy, code comments -->
-    <p class="lh-copy">hbs</p>
-    
-<pre><code class="language-handlebars">
+      <!-- 				fixit copy, code comments -->
+      <p class="lh-copy">hbs</p>
+
+      <pre><code class="language-handlebars">
 	&lt;h2&gt;Demo page (rendered with global wrapper)&lt;/h2&gt;
 	
 	&lt;h3&gt;Fish: &#123;&#123;fish&#125;&#125;&lt;/h3&gt;
@@ -1293,60 +1247,61 @@ https://github.com/hxgf/dw-blog-lexxi
 
 
 
-    <div class="pt3 fw7 f3 mb2">Template Locals (Global Variables)</div>
-    <!-- fixit copy -->
-    <p class="lh-copy">need to make an arbitrary variable/array available to all the templates? use $GLOBALS['locals'] (hold for
-      laugh)
-      but seriously, folks, treat it like an array and whatever you need. and if it's an array is something you can
-      iterate over. and, of course, all of this is available to the application as $GLOBALS['locals']['numbers'] or
-      whatever</p>
+      <div class="pt3 fw7 f3 mb2">Template Locals (Global Variables)</div>
+      <!-- fixit copy -->
+      <p class="lh-copy">need to make an arbitrary variable/array available to all the templates? use $GLOBALS['locals']
+        (hold for
+        laugh)
+        but seriously, folks, treat it like an array and whatever you need. and if it's an array is something you can
+        iterate over. and, of course, all of this is available to the application as $GLOBALS['locals']['numbers'] or
+        whatever</p>
 
-    <div class="cf">
-      <div class="fl w-50 pr3">
+      <div class="cf">
+        <div class="fl w-50 pr3">
 
-        <!-- 				fixit copy -->
-        <p class="lh-copy">php example</p>
-        
-<pre><code class="language-php">
+          <!-- 				fixit copy -->
+          <p class="lh-copy">php example</p>
+
+          <pre><code class="language-php">
 	$GLOBALS['locals']['eat_this'] = "breakfast";
 </code></pre>
-      </div>
+        </div>
 
 
-      <div class="fl w-50">
+        <div class="fl w-50">
 
-        <!-- 				fixit copy -->
-        <p class="lh-copy">hbs</p>
-        
-<pre><code class="language-handlebars">
+          <!-- 				fixit copy -->
+          <p class="lh-copy">hbs</p>
+
+          <pre><code class="language-handlebars">
 	Let's have &#123;&#123;locals.eat_this&#125;&#125; for dinner.
 </code></pre>
 
+        </div>
+
       </div>
 
-    </div>
 
 
+      <div class="cf">
+        <div class="fl w-50 pr3">
 
-    <div class="cf">
-      <div class="fl w-50 pr3">
+          <!-- 				fixit copy -->
+          <p class="lh-copy">php example</p>
 
-        <!-- 				fixit copy -->
-        <p class="lh-copy">php example</p>
-        
-<pre><code class="language-php">
+          <pre><code class="language-php">
 	$GLOBALS['locals']['colors'] = array('red', 'salmon', 'lilac', 'azul');
 </code></pre>
 
-      </div>
+        </div>
 
 
-      <div class="fl w-50">
+        <div class="fl w-50">
 
-        <!-- 				fixit copy -->
-        <p class="lh-copy">hbs</p>
-        
-<pre><code class="language-handlebars">
+          <!-- 				fixit copy -->
+          <p class="lh-copy">hbs</p>
+
+          <pre><code class="language-handlebars">
 	&lt;ul&gt;
 	  &#123;&#123;#each locals.colors&#125;&#125;
 	  &lt;li&gt;&#123;&#123;this&#125;&#125;&lt;/li&gt;
@@ -1354,45 +1309,45 @@ https://github.com/hxgf/dw-blog-lexxi
 	&lt;/ul&gt;
 </code></pre>
 
+        </div>
+
       </div>
 
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="tr cf pv3">
+      <div class="f1"><a class="black no-underline" href="https://hxgf.io/">⧉</a></div>
+      <div class="f7 lh-copy">
+        &copy; 2022 <a class="black" href="https://hxgf.io/">HXGF</a><br />
+        (CC) <a class="black" href="https://creativecommons.org/licenses/by-sa/3.0/us/">BY-SA 3.0</a>
+      </div>
+    </footer>
+
+    <div class="tc pv3">
+      <a target="_blank" href="https://hxgf.io"><img class="w3 dib" src="./images/hxgf-bug.png" /></a><br />
+      <a target="_blank" class="f6 black" href="https://github.com/hxgf/darkwave.ltd">src</a>
     </div>
 
 
 
-  </section>
-
-
-
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
-		<footer class="tr cf pv3">
-				<div class="f1"><a class="black no-underline" href="https://hxgf.io/">⧉</a></div>
-				<div class="f7 lh-copy">
-			&copy; 2022 <a class="black" href="https://hxgf.io/">HXGF</a><br />
-(CC) <a class="black" href="https://creativecommons.org/licenses/by-sa/3.0/us/">BY-SA 3.0</a>
-				</div>
-		</footer>
-	
-  <div class="tc pv3">
-    <a target="_blank" href="https://hxgf.io"><img class="w3 dib" src="./images/hxgf-bug.png" /></a><br />
-    <a target="_blank" class="f6 black" href="https://github.com/hxgf/darkwave.ltd">src</a>
   </div>
-
-	
-
-	</div>
-	</div>
+</div>
 
 
 
@@ -1412,16 +1367,7 @@ https://github.com/hxgf/dw-blog-lexxi
 
 
 <script>
-	if (window.location.hash){
-		document.getElementById(window.location.hash.replace('#','')).scrollIntoView();	
-	}
+  if (window.location.hash) {
+    document.getElementById(window.location.hash.replace('#', '')).scrollIntoView();
+  }
 </script>
-
-
-
-
-
-
-
-</body>
-</html>

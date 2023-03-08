@@ -1,0 +1,513 @@
+
+
+
+
+
+
+<!-- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------
+------
+------
+
+<br /><br />
+
+
+
+
+
+dw is:
+- stereo
+- extensible admin app
+- content mgmt
+- simple auth system
+- web-app primitives (image management, file uploads, etc)
+- future: data manager
+- future: code/file manager -- can edit/manage the entire app from here
+- helpful error messages for things like uploads, logins, etc
+- form handling and validation (primitives, checking required/type, etc)
+- a consistent and reliable (unchanging) architecture to build against
+pragmatic, ehthos, brutalist, simple, boring, fast, fun
+- helper js libraries (dropzone, smoke, etc)
+- copy/paste components/patterns / building blocks for building specific types of functionality
+- pre-packaged 'manual plug-in' functionality
+- recommendations for tools to use for solving problems that aren't solved w/ the system
+- tutorials /checklists for how to build certain kinds of things w/ this
+(every time you want to do this, here's what you need to do/consider)
+talking 'newbs' through more complex operations (kinda like coaching someone through disarming a bomb or hooking up a sound system) (and helpful notes for debugging - [ie "photo uploads not working? check to make sure you created the upload folder and that it has the right permissions])
+recipe / cookbook
+how to build a
+directory of profiles for your organization
+generic blog site
+todo list app haha
+podcast cms?
+
+need MORE POWER? build an obelisk! here's how!
+
+
+
+------
+------
+------
+
+<br /><br />
+
+
+KITCHEN SINK
+- db collection init scripts
+- copy/paste admin screens (blog?)
+- generic form/photo updating from DAA user/trade/project
+	- kitchen sink form w/ every type of input / data structure
+- corollary copy/paste "front end" components
+	(?? OIP blog, files)
+
+
+<br /><br />
+
+# DOCS / EDUCATION / TUTORIALS
+
+[ ] better docs (describe what the system actually does, how to work with it, how to extend it)
+
+  // foundational info
+    // what it does
+      // what it includes
+    // why would you use it 
+
+
+wow this readme has drop-downs, cool to do that for dw readme? https://github.com/lydiahallie/javascript-questions#readme
+
+
+meta - need to suppress php warnings? (filling up the log file?)
+  try this: error_reporting(E_ERROR | E_PARSE);
+
+
+a manual (/field guide) for building (effective/attractive/solid/usable) web sites/applications with as little (fanfare/suffering/pretense/) as possible
+  key concept: build your thing, call it done, go hang out with your friends
+    development is central to some people's lives, but you're a real person with a real life. 
+    you can over-engineer anything to death, if you're a perfectionist, you'll never be happy with it, there's always something that could be better
+    make it good enough (and do a really good job), but know when to stop and call it done
+  instructional guides and resources (links to valuable online tools/libraries that can help you solve problems quickly)
+
+
+
+
+- what's included for the admin (and can be included in your public site) - font awesome, tachyons, alpine, quill, dropzone, etc
+    -- links to all the docs for all the libs
+
+  dw docs want to have a reference of all commonly used docs for all the libs included (font awesome icon search, tachyons components, etc)
+
+
+
+
+- copy/paste for FE components/patterns (& link to whatever repos for back end code? copy/pasta?)
+
+
+
+- front end / dev resources 
+  --- want to have a collection of cool "approved" libraries (ones that we like working with and yield badass results, ideally fitting the same license and ethos of the projects)
+
+  dw docs? separate site/resource? - front end best practices
+  - want to have a site (that i can refer to) that documents the workflows, resources and best practices i use/need to be a productive and efficient FE dev
+  - notes of all the tools i use for various things (unix time format, generating favicons, etc)
+
+
+
+
+
+stereo/dw front end -- if you want equal height floated divs, use flex + flex-wrap -- http://tachyons.io/docs/layout/flexbox/
+    also if you do a flexbox sticky footer, the flex element needs to be ie11 compliant w/ min height
+        the flex element needs to have     `flex: 1 0 auto;`
+
+
+
+
+
+
+- Is darkwave for me? -- guide/quiz/questionaire about the type of project you want to build, it tells you wether or not it's a good fit, offers alternatives if it's not (you need laravel, rails, wordpress, etc)
+
+
+Dark wave light house score?
+    - https://blog.logrocket.com/building-a-progressive-web-app-pwa-no-react-no-angular-no-vue-aefdded3b5e
+
+
+
+cookbooks for doing various types of projects (simple web site apps \-\-> mobile/pwa apps [tv os, "platform" type cloud services])
+
+  my "best-practices" guide for putting stuff together
+  "recipes"
+  "spells"
+  cool "how-to" instructions, step-by-step guides with colorful commentary
+
+  "building a forum / iphone app w/ darkwave, lexxi, vue, and phonegap" or whatever
+    recommendations for cool microservices to work with (braintree, mailgun, compose, etc)
+
+
+  tips on workflow, setting up your environment, etc
+
+    stereo/dw - this is cool for doing shit locally
+    https://github.com/typicode/hotel
+
+    idk mamp? open source alternative?
+
+    recommended editors (atom, coda, iterm, sequel pro, etc)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+here's what's included (libs)
+  flatpickr https://chmln.github.io/flatpickr/
+  dropzone
+  smoke
+  tachyons
+  font awesome
+  jquery
+
+  phmagick
+
+  [we're using them in the admin, it's up to you wether or not to use them in your actual projects. we made a note of patterns that utilize these dependencies for customer-facing code]
+
+  - make a note of all the 3rd-party libs & functionality the system comes with (stereo + phmagick + js libs + tachyons + darkwave functions [new_user (back end), post_json (front end) idk what else])
+  - tachyons components / resources [[tachyons patterns / meta]]
+  - datepicker, quill, dropzone, smoke, etc
+
+      comes bundled with
+      jquery [version?]
+      js cookie
+      jquery text editor
+      dropzone
+      smoke
+      flatpickr
+      phmagick
+      [darkwave helpers, loaders animations, etc, idk]
+
+      tachyons
+
+
+dw/stereo docs
+- all available global vars ($GLOBALS['user_id'], $GLOBALS['auth'], etc)
+
+
+global vars you have at your disposal
+  user_id // same as cookie
+  profile_url // same as cookie
+  auth // is user authenticated?
+  is_admin // is current user in admin group?
+  is_moderator // is current user in mod group?
+  locals // template locals
+  site_title
+  site_code
+  site_url
+  [and all the settings variables]
+  
+  
+front end tools
+
+  darkwave.api_request({
+    url: '/', // required
+    data: {},
+    callback: function(result){
+      alert(result);
+    },
+    debug: true // optional
+  });
+
+
+
+auth emails (welcome, pw reset) are sent with notifications@yourdomain.com. if you want to change this, do it yourself...you don't need to have a valid mailbox there, but set one up if you want to catch any replies from people.
+
+
+how to use/extend .validate (checking for uniqueness with email addresses or whatever else you want)
+
+how to check for required form fields
+
+here's what comes with auth:
+
+/login
+/register
+  & activation process
+/forgot
+  & pw reset process
+/account/settings
+
+
+here's the default behavior and here's how you can customize it
+
+
+
+
+
+
+
+
+
+
+
+
+
+------
+------
+------
+
+<br /><br />
+
+<h2>more power?</h2>
+
+need more power? maybe you should build an <a href="/obelisk">obelisk</a>
+- if you have more than one darkwave app running on a server and/or you want fast/concurrent processing w/ node.js (do the fast and heavy lifting that php isn't particularly well-suited for doing)
+- generic dw-compatible microservices that can be utilized by multiple apps
+- http interface (you call it from the dw controllers, send it data/instructions via http api)
+
+<br /><br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<Br /><br />
+
+
+
+- [ ]  ?? dw docs api_request
+if you give "url" param a full url, it will use that. otherwise it will treat your input as an api endpoint (if there's an api_root set, it will use that, otherwise it defaults to using the current server as a root (it's blank))
+ex: { url: '/login' } would load [http://publicworks.static.city/login](http://publicworks.static.city/login) if darkwave.api_root were set
+
+
+<br /><br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- [ ]  dw - what version of dropzone are we using??? - want to document the 'current' versions of each supporting lib in each release
+
+
+<br /><br />
+
+- [ ]  dw docs - components get their own section? (like obelisk)
+    - components/patterns intro
+
+        less of a feature and more of an ethos -- would love to have default profiles/configs for a11y & i18n
+        but not have to think about it on every project
+
+        - pick a pattern (messaging, forums, etc) and implement it, knowing that everything's generally covered (and note/warnings about what isn't)
+
+        pre-built accessible web components
+        taking the guess work out of best practices
+        basic blocks, nothing too technical or over-engineered
+        make it easy to do the right thing (without having to do a lot of work every time and worry that you're getting it wrong)
+
+    darkwave patterns - like slices, a little bit of everything you need at each layer to accomplish a certain piece of functionality (front end, back end, database, url routing, etc)
+    - building w/ pods (like ember) - your app is split into slices
+
+- [ ]  docs components/patterns org (kitchen sink)
+update new modules - blog from oip
+starter kit w/ everything (text entry, textarea, quill, checkboxes, photo gallery, single photo upload, file uplad, etc) -- take away everything you don't need 
+— from oip - blog/editor changes (admin.js [photo upload, save], quill dw css, admin css)
+list headers colors
+    - components for generic 'kitchen sink' form, you can find everything in one place and copy what you need ... currently 'blog/articles' module ... call it 'profiles' or something ... put it all in one repo
+    -- Dw kitchen sink - every type of ui element (form element) and how to store/retrieve it
+    Select, boolrnans, checkbox, photos, files, passwords, dates, required, tool tips, etc, etc
+    -- kinda like this but w/ active admin form elements (and their back-end counterparts [http://foundation.zurb.com/docs/components/kitchen_sink.html](http://foundation.zurb.com/docs/components/kitchen_sink.html)
+
+    -- -- dw kitchen sink - searchable page that has everything, implemented example & tabbed code samples for copy/paste
+
+    -- -- would also like to do it for each part of each component/module too (blog, profiles, etc)
+
+    dw modules - consistent nomenclature (galleries, blogs/articles, files, etc) - db collections are consistently plural tho
+
+    dw new components from ocean investor portal
+
+    - gallery
+    - ?? files?
+    - "custom" boilerplate (used for projects...based on "profile" component)
+
+    dw components - user profiles and directory
+    -nrha pros
+    -carlton landing builders guild
+    -ocean mgmt tenants
+
+<br /><br /><br /><br />
+
+- docs db setup (best practices) - default table type - innodb + utf8/utf8_general
+
+<br /><br /><br /><br />
+
+
+- [ ]  BLOG COMPONENT - admin fix - blog component - "all users" -- > "all articles"
+- [ ]  blog component - sql query add ENGINE (innodb) from user creation query (on install)
+- [ ]  (from OIP) — blog component updates
+    - blog save large image
+        - new db column
+        - new controllers (save/delete blog admin)
+        - new templates (blog list/detail, responsive images)
+    - dw blog add subtitle
+    - and the text editor feels kinda janky!
+    - text input styles - pa2 f5 (and not b/fw7)
+
+
+<br /><br /><br /><br />
+
+- [ ]  docs credits - dw.serielaize)( lifted from// https://vanillajstoolkit.com/helpers/serialize/
+- [ ]  docs - "standards" dates stored as bigint, boolean is tinyint, all tables have a _id field and we write a special uniquid for each new record, dates stored as unix time, always use innodb/utf8
+- [ ]  docs note - the password/hashing (auth tokens, is_admin, etc) functions use the site code. if you change it, it will "break" the credentials (cookies) for users who are logged in and they'll have to log in again
+- dw features/docs - global loading state (& instructions on how to update (shout out to where we got it from, links to go make a new one))
+
+- dw docs - after(/before?) install: perms on uploads folder need to be 0755 (default on my server...idk about yours)
+
+- dw docs - on install check perms of upload folder - 0755
+
+
+<br /><br /><br /><br />
+
+it's not a framework, it's a lifestyle ... nothing really magic happening w/ the technology, just combining existing libs in a useful way. the important part is the workflow, organization, and coding conventions. ultimately we want to have a collection of copy paste code/components to make the process of building full-stack applications w/ these tools as fast and effortless as possible
+
+<br /><br />
+
+dw docs - reqs - some of the tools (alpine, i think?) only support evergreen browsers (ie, not ie11-) - maybe have some
+polyfills for supporting older browsers?
+
+
+
+<br /><br />
+
+??upload docs
+- sample code for working w/ uppy (like i'm doing for mgmt.ocean & jcdv)
+- https://uppy.io/examples/dashboard/
+- also sample code for processing uploads w/ obelisk (using both uppy and dropzone as a front end, single vs multiple
+- sample code for handling image galleries (copy/paste components w/ sort/edit functionality)
+- the stuff i've done for (cb, oip, jcdv, mgmt.ocean, tenants, etc)
+
+<br /><Br />
+
+
+
+
+
+
+
+
+- default user groups
+  - admin users (system managers, site admins...use all system/layout/dev/data tools in dw admin)
+  - mgmt/content users (use data in admin app, content publishing, user mgmt, manage settings for...whatever...etc)
+  - end-users - users of the site you build (people who use the "public" version, don't see or even know about the admin app) - web-site visitors, customers, etc
+    - separateable depending on use case (buyers vs sellers, community members w/ roles, etc)
+
+
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+---
+
+DW components gh (save components for docs & delete from gh)
+
+
+
+
+---------------
+
+
+
+
+
+	dw docs
+
+		integration recipes for adding new functionality [i really want to automate the installation of this from either the web admin or the cli]
+			1. add the controllers
+			2. link to the new files
+			3. add the templates
+			4. add any js/css/images
+			5. add any db tables
+
+		how does form validation work?
+			which classes should you put where? and why? (validate, required, etc)
+
+		building admin screens
+			using the save/delete handlers (how they work, what they expect, etc)
+
+		document how the login works (note that we have a field called "website" to fool bots)
+		"zero to deployment" guide which talks about hosting, ideal enviornments, etc (for total noobs, not part of the fw, but good ideas to remember when setting up your site / solving this particular problem)
+
+		uploads
+			make sure your uploads folder is set to 755
+			if it's not working, turn on debugging and check this shit out: https://www.startutorial.com/articles/view/move_uploaded_file-faq
+
+
+</p>
+
+
+<hr /><hr /><hr />
+
+ -->
+
+
+
+

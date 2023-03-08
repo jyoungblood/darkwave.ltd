@@ -11,3 +11,7 @@ a.hover-underline:hover,
 a.hover-underline:hover span {
   text-decoration: underline;
 }
+
+.fs80{
+  font-size: 80%;
+}

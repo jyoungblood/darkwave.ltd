@@ -22,13 +22,11 @@ $app->get('/docs[/]', function ($req, $res, $args) {
 
 
 
-
-
 $app->get('/docs/default[/]', function ($req, $res, $args) {
 
   return render::hbs($req, $res, [
     'layout' => '_layouts/docs',
-    'template' => 'docs/default',
+    'template' => 'docs-elements',
     'title' => 'default elements - ' . $GLOBALS['site_title'],
     'data' => [
       'hide_footer' => true

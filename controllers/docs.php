@@ -20,8 +20,6 @@ $app->get('/docs[/]', function ($req, $res, $args) {
 
 
 
-
-
 $app->get('/docs/default[/]', function ($req, $res, $args) {
 
   return render::hbs($req, $res, [

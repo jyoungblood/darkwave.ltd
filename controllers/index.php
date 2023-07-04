@@ -1,6 +1,7 @@
 <?php
 
 require 'controllers/docs.php'; 
+require 'controllers/guide.php'; 
 
 
 use Slime\render;

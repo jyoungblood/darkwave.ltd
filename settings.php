@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS['site_title'] = 'darkwave 0.6.0';
+$GLOBALS['site_title'] = 'darkwave 0.6.1';
 $GLOBALS['site_code'] = 'DWD';
 $GLOBALS['site_domain'] = 'darkwave.ltd';
 

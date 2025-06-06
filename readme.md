@@ -1,79 +1,55 @@
-# S L I M E
+# Starlight Starter Kit: Basics
 
-### Starter kit for building web applications with Slim PHP Framework
+[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
-*(it's Slim ... enhanced)*
-
-[⭐ Demo & Docs ⭐](https://slime.hxgf.io/)
-
-## What's included?
-- [Slim v4](https://www.slimframework.com/) (w/ [Slim PSR-7](https://github.com/slimphp/Slim-Psr7))
-- Handlebars templating - [Lightncandy](https://github.com/zordius/lightnCandy)    
-
-
-- Helpful abstraction libraries:
-
-  - View rendering - [Slime Render](https://github.com/hxgf/slime-render)
-  - Database handlers - [DB Kit](https://github.com/hxgf/dbkit)
-  - Cookie handlers - [Cookie](https://github.com/hxgf/cookie)
-  - Simple HTTP client - [HTTP Request](https://github.com/hxgf/http-request) 
-  - Misc utility functions - [X-Utilities](https://github.com/hxgf/x-utilities)
-    
-- Minimal front-end boilerplate & utility library options - [scratch](https://github.com/hxgf/scratch)
-    
-- Simple organization - folders for css, js, images, templates, and controllers
-
-- Blank CSS and JS placeholder files
-
-- [settings.php](https://github.com/hxgf/slime/blob/master/settings.php) - helpful basic variables and settings
-
-- [index.php](https://github.com/hxgf/slime/blob/master/index.php) - initialized Slim application w/ middleware, db connection, and default 404 configuration
-
-- [.htaccess](https://github.com/hxgf/slime/blob/master/.htaccess) - routes all non-file urls to index, forces https, and uses gzip for static assets (if available)
-- [.gitignore](https://github.com/hxgf/slime/blob/master/.gitignore) - ignores `/vendor`, `.vscode`, and `.DS_Store`
-
-
-
-
-
-
-## Requirements
-- Apache
-- PHP >= 7.4
-- PDO-compatible database (if using [DB handlers](https://github.com/hxgf/dbkit))
-
-
-
-
-
-## Installation
-Easy install with composer:
 ```
-composer create-project hxgf/slime new-project-name
+npm create astro@latest -- --template starlight
 ```
 
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/withastro/starlight&create_from_path=examples/basics)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwithastro%2Fstarlight%2Ftree%2Fmain%2Fexamples%2Fbasics&project-name=my-starlight-docs&repository-name=my-starlight-docs)
 
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
+## 🚀 Project Structure
 
-## Usage
-See [controllers/index.php](https://github.com/hxgf/slime/blob/master/controllers/index.php) for an example of routing and template rendering.
+Inside of your Astro + Starlight project, you'll see the following folders and files:
 
-See [templates/index.html](https://github.com/hxgf/slime/blob/master/templates/index.html) and [templates/_layouts/base.html](https://github.com/hxgf/slime/blob/master/templates/_layouts/base.html) for examples using handlebars and layouts.
+```
+.
+├── public/
+├── src/
+│   ├── assets/
+│   ├── content/
+│   │   ├── docs/
+│   │   └── config.ts
+│   └── env.d.ts
+├── astro.config.mjs
+├── package.json
+└── tsconfig.json
+```
 
-Helpful resources:
-- [Handlebars Cookbook](https://zordius.github.io/HandlebarsCookbook/)
-- [Slim v4 Routing](https://www.slimframework.com/docs/v4/objects/routing.html)
-- [DB Kit CRUD operations](https://github.com/hxgf/dbkit)
-- [Tachyons Docs](https://tachyons.io/docs/)
+Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
 
-Check out [slime-demo](https://github.com/hxgf/dbkit) to see examples of some cool stuff you can do with Slime!
+Images can be added to `src/assets/` and embedded in Markdown with a relative link.
 
----
+Static assets, like favicons, can be placed in the `public/` directory.
 
-Slime is heavily inspired by [STEREO](https://stereotk.com/), an older toolkit I've assembled and maintained, which has helped me to be very productive and make a decent living over the years. 
+## 🧞 Commands
 
-I hope these tools and the workflows they enable can help some of you as much as they've helped me : )
+All commands are run from the root of the project, from a terminal:
 
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## 👀 Want to learn more?
 
-
+Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
